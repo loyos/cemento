@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 
 class UsuariosController extends AppController {
 	public $components = array('Paginator','Session');
-	public $uses = array('Usuario','Pedido','Periodo','Parametro','User');
+	public $uses = array('Usuario','Pedido','Periodo','Parametro','User','Dia');
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -126,6 +126,19 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash('El máximo de bolsas de cemento para solicitar es '.$max_bolsas);
 			}
 		}
+		$dias = $this->Dia->find('all');
+		$fecha = date('D');
+		$hora = date('H:i:s');
+		$activado = false;
+		foreach ($dias as $d) {  
+			if ($fecha == $d['Dia']['dia']) {
+				if ($hora >= $d['Dia']['hora_inicio'] && $hora <= $d['Dia']['hora_fin']) {
+					$activado = true;
+				}
+			}
+		} 
+		$this->set(compact('activado','dias'));
+		
 	}
 	
 	function admin_index(){

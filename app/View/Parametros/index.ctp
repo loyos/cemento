@@ -33,7 +33,29 @@
 <?php foreach ($dias as $d) { ?>
 		<tr>
 			<td>
-				<?php echo $d['Dia']['dia']; ?>
+				<?php 
+				if ($d['Dia']['dia'] == 'Mon') {
+					$d['Dia']['dia'] = 'Lunes';
+				}
+				if ($d['Dia']['dia'] == 'Tue') {
+					$d['Dia']['dia'] = 'Martes';
+				}
+				if ($d['Dia']['dia'] == 'Wed') {
+					$d['Dia']['dia'] = 'Miercoles';
+				}
+				if ($d['Dia']['dia'] == 'Thu') {
+					$d['Dia']['dia'] = 'Jueves';
+				}
+				if ($d['Dia']['dia'] == 'Fri') {
+					$d['Dia']['dia'] = 'Viernes';
+				}
+				if ($d['Dia']['dia'] == 'Sat') {
+					$d['Dia']['dia'] = 'Sabado';
+				}
+				if ($d['Dia']['dia'] == 'Sun') {
+					$d['Dia']['dia'] = 'Domingo';
+				}
+				echo $d['Dia']['dia']; ?>
 			</td>
 			<td>
 				<?php echo $d['Dia']['hora_inicio']; ?>

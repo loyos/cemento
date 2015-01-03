@@ -48,9 +48,20 @@ class ParametrosController extends AppController {
 	
 	public function add_dia() {
 		if (!empty($this->data)) {
-			$this->Dia->save($this->data);
+			$data = $this->data;
+			$this->Dia->save($data);
 			$this->redirect(array('action' => 'index'));
 		}
+		$options = array(
+			'Mon' => 'Lunes',
+			'Tue' => 'Martes',
+			'Wed' => 'Miércoles',
+			'Thu' => 'Jueves',
+			'Fri' => 'Viernes',
+			'Sat' => 'Sábado',
+			'Sun' => 'Domingo'
+		);
+		$this->set(compact('options'));
 	}
 	
 	public function delete_dia($id) {

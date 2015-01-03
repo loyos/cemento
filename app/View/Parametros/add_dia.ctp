@@ -13,7 +13,8 @@
 					echo $this->Form->input('dia',array(
 						'label' => 'Dia *',
 						'class' => 'form-control',
-						'type' => 'text',
+						'type' => 'select',
+						'options' => $options
 					));
 				  ?>
 				</div>
