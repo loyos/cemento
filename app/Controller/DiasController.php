@@ -6,6 +6,7 @@ class DiasController extends AppController {
 	public $components = array('Paginator','Search.Prg');
 	public $uses = array('Dia');
 	
+	
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('logout', 'view');

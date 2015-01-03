@@ -7,7 +7,7 @@ class ParametrosController extends AppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow();
+		$this->Auth->allow('permitir');
 	}
 	
 	public function index() {
@@ -59,6 +59,8 @@ class ParametrosController extends AppController {
 		));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function permitir() {}
 }
 
 ?>

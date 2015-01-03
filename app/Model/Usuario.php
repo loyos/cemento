@@ -4,29 +4,22 @@ App::uses('AppModel', 'Model');
 class Usuario extends AppModel {
     var $name = 'Usuario';
 	
-	public $actsAs = array(
-		'Search.Searchable'
+	var $hasMany = array(
+		'Pedido' => array(
+			'className' => 'Pedido',
+			'foreignKey' => 'usuario_id'
+		),
+		'Entrega' => array(
+			'className' => 'Entrega',
+			'foreignKey' => 'usuario_id'
+		),
+		'Periodo' => array(
+			'className' => 'Periodo',
+			'foreignKey' => 'usuario_id'
+		),
 	);
 	
-	var $hasOne = array('Pedido','Entrega','Periodo');
-	
-	public $filterArgs = array(
-		// 'fecha_inicio' => array(
-			// 'type' => 'query',
-			// 'field' => 'fecha',
-			// 'method' => 'filtro_fecha'
-		// ),
-		// 'fecha_fin' => array(
-			// 'type' => 'query',
-			// 'field' => 'fecha',
-			// 'method' => 'filtro_fecha'
-		// ),
-		'cedula' => array(
-			'type' => 'value',
-			'field' => 'cedula',
-		),
-    );
-	
+
     public $validate = array(
         'nombre' => array(
             'required' => array(
@@ -56,7 +49,7 @@ class Usuario extends AppModel {
 				'message' => 'Es requerido colocar el correo'
 			),
 			'correo_valido' => array(
-				'rule' =>  array('email', true),
+				'rule' =>  array('email'),
 				'message' => 'Correo inválido'
 			)
 		),

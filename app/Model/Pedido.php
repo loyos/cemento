@@ -30,11 +30,10 @@ class Pedido extends AppModel {
 			'field' => 'fecha',
 			'method' => 'filtro_fecha'
 		),
-		// 'cedula' => array(
-			// 'type' => 'query',
-			// 'field' => 'cedula',
-			// 'method' => 'buscar_cedula'
-		// )
+		'ced' => array(
+			'type' => 'like',
+			'field' => 'Usuario.cedula',
+		)
 		
     );
 	
@@ -59,23 +58,39 @@ class Pedido extends AppModel {
 	
 	public function filtro_fecha($data = array()){
 		$condition = array();
-		if (!empty($data['fecha_inicio'])) {
+		
+		$month_inicio = $data['fecha_inicio']['month'];
+		$day_inicio = $data['fecha_inicio']['day'];
+		$year_inicio = $data['fecha_inicio']['year'];
+		
+		$month_fin = $data['fecha_fin']['month'];
+		$day_fin = $data['fecha_fin']['day'];
+		$year_fin = $data['fecha_fin']['year'];
+		
+		if (!empty($month_inicio) && !empty($day_inicio) && !empty($year_inicio)) {
+			$fecha_inicio = $year_inicio.'-'.$month_inicio.'-'.$day_inicio;
+			$date = strtotime($fecha_inicio);
 			$condition1 = array(
-					'fecha >=' => $data['fecha_inicio'],
+					'Pedido.fecha >=' => date('Y-m-d', $date),
+			);
+			//debug($condition1);die();
+			array_push($condition, $condition1);
+		}
+		
+		if (!empty($month_fin) && !empty($day_fin) && !empty($year_fin)) {
+			$fecha_fin = $year_fin.'-'.$month_fin.'-'.$day_fin;
+			$date = strtotime($fecha_fin);
+			$condition1 = array(
+					'Pedido.fecha <=' => date('Y-m-d', $date),
 			);
 			array_push($condition, $condition1);
 		}
-		if (!empty($data['fecha_fin'])) {
-			$condition2 = array(
-					'fecha <=' => $data['fecha_fin'],
-			);
-			array_push($condition, $condition2);
-		}
+		
 		return $condition;
 	}
 	
 	// public function buscar_cedula($data = array()) {
-		// if (!empty($data['cedula'])) {
+		// if (!empty($data['ced'])) {
 			// $condition = array(
 			// 'Usuario.cedula' => $data['cedula']
 			// );

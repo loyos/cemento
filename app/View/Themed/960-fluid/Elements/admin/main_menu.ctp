@@ -8,14 +8,12 @@
 		<ul>
 			<li>
 				<?php
-					if($permisos_usuarios['Permiso']['usuarios'] ){
-						echo $this->Html->link(
-							 $this->Html->image('contactsms.png' , array('width' => '15px')) . ' Usuarios del Sistema ',
-							 array(
-								 '#'
-							 ),array('escape'=>false)
-						 );
-					}
+					echo $this->Html->link(
+						 $this->Html->image('contactsms.png' , array('width' => '15px')) . ' Usuarios del Sistema ',
+						 array(
+							 '#'
+						 ),array('escape'=>false)
+					 );
 				?>
 				<ul class = "second_level" style = "left: 154px; top: 0px;">
 					<li> 
@@ -23,45 +21,30 @@
 								 echo $this->Html->link(
 									 $this->Html->image('listLook.png' , array('width' => '15px')) . ' Usuarios del Sistema ',
 									 array(
-										 'controller' => 'users',
-										 'action' => 'index'
-									 ),array('escape'=>false)
-								 );
-							?>
-						</li>
-						<li>
-							<?php 
-								 echo $this->Html->link(
-									 $this->Html->image('listAddContacts.png', array('width' => '15px')) . ' Agregar Usuario ',
-									 array(
-										 'controller' => 'users',
-										 'action' => 'add'
+										 'controller' => 'usuarios',
+										 'action' => 'admin_index'
 									 ),array('escape'=>false)
 								 );
 							?>
 						</li>
 				</ul>
 			</li>
-			
-			
 			<li>
 				<?php
-					if($permisos_usuarios['Permiso']['clientes'] ){
-						echo $this->Html->link(
-							 $this->Html->image('clientes.png' , array('width' => '14px')) .' Clientes del Sistema ',
-							 array(
-								 '#'
-							 ),array('escape'=>false)
-						 );
-					}
+				echo $this->Html->link(
+						 $this->Html->image('addListIcon.png' , array('width' => '14px')) .' Solicitudes ',
+						 array(
+							 '#'
+						 ),array('escape'=>false)
+					 );
 				?>
 				<ul class = "second_level" style = "left: 154px; top: 0px;">
 					<li> 
 							<?php
 								 echo $this->Html->link(
-									 $this->Html->image('listLook.png' , array('width' => '14px')) . ' Listar Clientes ',
+									 $this->Html->image('listLook.png' , array('width' => '14px')) . ' Solicitudes en curso',
 									 array(
-										 'controller' => 'clientes',
+										 'controller' => 'pedidos',
 										 'action' => 'index'
 									 ),array('escape'=>false)
 								 );
@@ -70,108 +53,37 @@
 						<li>
 							<?php 
 								 echo $this->Html->link(
-									 $this->Html->image('listAddContacts.png', array('width' => '14px')) . ' Agregar Cliente ',
+									 $this->Html->image('listLook.png', array('width' => '14px')) . ' Historial de solicitudes ',
 									 array(
-										 'controller' => 'clientes',
-										 'action' => 'add'
+										 'controller' => 'pedidos',
+										 'action' => 'historial'
 									 ),array('escape'=>false)
 								 );
 							?>
 						</li>
 				</ul>
 			</li>
-
-
-
-
 			<li>
 				<?php
-					if($permisos_usuarios['Permiso']['productos'] ){
 						echo $this->Html->link(
-							 $this->Html->image('addListIcon.png' , array('width' => '14px')) .' Productos de clientes ',
+							 $this->Html->image('addListIcon.png' , array('width' => '14px')) .' Parametrización ',
 							 array(
 								 '#'
 							 ),array('escape'=>false)
 						 );
-					}
 				?>
 				<ul class = "second_level" style = "left: 154px; top: 0px;">
 					<li> 
 							<?php
 								 echo $this->Html->link(
-									 $this->Html->image('listLook.png' , array('width' => '14px')) . ' Listar productos',
+									  $this->Html->image('addListIcon.png' , array('width' => '14px')) .' Editar parámetros',
 									 array(
-										 'controller' => 'productos',
+										 'controller' => 'parametros',
 										 'action' => 'index'
 									 ),array('escape'=>false)
 								 );
 							?>
 						</li>
-						<li>
-							<?php 
-								 echo $this->Html->link(
-									 $this->Html->image('listAddContacts.png', array('width' => '14px')) . ' Agregar Producto ',
-									 array(
-										 'controller' => 'productos',
-										 'action' => 'add'
-									 ),array('escape'=>false)
-								 );
-							?>
-						</li>
-				</ul>
-			</li>
-
-
-			
-			
-			<li>
-				<?php 
-					if($permisos_usuarios['Permiso']['roles'] ){
-						echo $this->Html->link(
-							 $this->Html->image('roles.png' , array('width' => '15px')) . ' Roles ',
-							 array(
-								 '#'
-							 ),array('escape'=>false)
-						 );
-					}
-				?>
-				<ul class = "second_level" style = "left: 154px; top: 0px;">
-					<li>
-						<?php
-							 echo $this->Html->link(
-									 $this->Html->image('listsms.png', array('width' => '15px')) . ' Administrar Roles ',
-									 array(
-										 'controller' => 'permisos',
-										 'action' => 'index'
-									 ),array('escape'=>false)
-								 );
-						?>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<?php 
-					if($permisos_usuarios['Permiso']['dias'] ){
-						echo $this->Html->link(
-							 $this->Html->image('info.png' , array('width' => '15px')) . ' Días No Laborables ',
-							 array(
-								 '#'
-							 ),array('escape'=>false)
-						 );
-					}
-				?>
-				<ul class = "second_level" style = "left: 154px; top: 0px;">
-					<li>
-						<?php
-							 echo $this->Html->link(
-									 $this->Html->image('listsms.png', array('width' => '15px')) . ' Administrar Días ',
-									 array(
-										 'controller' => 'dias',
-										 'action' => 'index'
-									 ),array('escape'=>false)
-								 );
-						?>
-					</li>
 				</ul>
 			</li>
 		</ul>	
@@ -190,34 +102,7 @@
 		</li>
 		<li class = "secondary">
 			<?php echo $this->Html->link('Bienvenido (a) '. $username, '#'); ?>
-			<ul>
-				<li>
-					<?php
-						echo $this->Html->link(
-							$this->Html->image('listLook.png', array('width' => '15px')) . ' Ver mis datos ',
-							array(
-							 'controller' => 'users',
-							 'action' => 'view',
-							 $id
-							),array('escape'=>false)
-						);
-					?>
-				</li>
-				<li>
-					<?php 
-					if($rol_activo == 'administrador'){
-						echo $this->Html->link(
-							$this->Html->image('listEdit.png', array('width' => '15px')) . ' Editar mis datos ',
-							array(
-							 'controller' => 'users',
-							 'action' => 'edit',
-							 $id
-							),array('escape'=>false)
-						);
-					}
-					?>
-				</li>
-			</ul>
+			
 		</li>
 	<?php }else{ ?>
 			<li class = 'secondary'>

@@ -77,11 +77,11 @@ class UsuariosController extends AppController {
 					
 					if (!empty($pedidos)) { //hay pedidos abiertos
 						if (($data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`num_bolsas`)']) > $max_bolsas) {
-							$this->Session->setFlash('Ya ha realizado solicitudes y el monto total excede al máximo de bolsas de cemento permitido');
+							$this->Session->setFlash('Ya ha realizado solicitudes y el monto total excede al máximo de bolsas de cemento permitido','error');
 						} else {		
 							if ($hay_periodo_abierto) {
 								if (($periodo['Periodo']['bolsas'] + $data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(Pedido.num_bolsas)']) > $max_bolsas) {
-									$this->Session->setFlash('El número de bolsas solicitadas mas los pedidos pendientes supera el número de bolsas maximas cada '.$dias_espera);
+									$this->Session->setFlash('El número de bolsas solicitadas mas los pedidos pendientes supera el número de bolsas maximas cada '.$dias_espera,'error');
 								}
 							} else {
 								//Actualizo el usuario
@@ -94,14 +94,14 @@ class UsuariosController extends AppController {
 								));
 							
 								$this->Pedido->save($pedido);
-								$this->Session->setFlash('La solicitud se generó con exito');
+								$this->Session->setFlash('La solicitud se generó con exito','success');
 								$this->redirect(array('action' => 'index'));
 							}
 						}
 					} else {
 						if ($hay_periodo_abierto) {
 							if (($periodo['Periodo']['bolsas'] + $data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`num_bolsas`)']) > $max_bolsas) {
-								$this->Session->setFlash('El número de bolsas solicitadas supera el número de bolsas maximas cada '.$dias_espera);
+								$this->Session->setFlash('El número de bolsas solicitadas supera el número de bolsas maximas cada '.$dias_espera,'error');
 							}
 						} else {
 							//Actualizo el usuario
@@ -114,13 +114,13 @@ class UsuariosController extends AppController {
 							));
 						
 							$this->Pedido->save($pedido);
-							$this->Session->setFlash('La solicitud se generó con exito');
+							$this->Session->setFlash('La solicitud se generó con exito','success');
 							$this->redirect(array('action' => 'index'));
 						}
 					}
 				}
 				} else {
-					$this->Session->setFlash('Corrige los errores');
+					$this->Session->setFlash('Corrige los errores','error');
 				}
 			} else {
 				$this->Session->setFlash('El máximo de bolsas de cemento para solicitar es '.$max_bolsas);

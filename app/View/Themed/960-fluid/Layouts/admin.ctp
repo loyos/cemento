@@ -19,6 +19,8 @@
 		echo $this->Html->script('jquery-ui.min');
 		echo $this->Html->css('tooltipster');
 		echo $this->Html->css('jquery-ui.min');
+		echo $this->Html->script('jquery-ui-1.10.4.custom');
+		echo $this->Html->script('jquery.PrintArea');
 
 	?>
 	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -53,5 +55,5 @@
 <script>
 	$(document).ready(function() {
 		$('.tooltip').tooltipster();
-	});
+	});												// also with this settings, user can save the file as pdf instead of print it.
 </script>

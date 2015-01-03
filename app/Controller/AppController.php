@@ -12,7 +12,7 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'index',
+                'controller' => 'pedidos',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
@@ -49,16 +49,5 @@ class AppController extends Controller {
 			$this->set('id', $id);
 			$this->set('rol_activo', $rol_activo);
 		}
-		
-		//permisos
-			$tipo_usuario = $this->Auth->user('rol');
-			$permisos_usuarios = $this->Permiso->find('first', array(
-				'conditions' => array(
-					'nombre' => $tipo_usuario
-				)
-			));
-			$this->set('permisos_usuarios', $permisos_usuarios);
-			// debug($permisos_usuarios);
-		//
     }
 }
