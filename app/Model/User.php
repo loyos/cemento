@@ -25,13 +25,6 @@ class User extends AppModel {
                 'message' => 'Por favor ingrese su correo electrónico'
             )
         ),
-        'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
-            )
-        )
     );
 	
 	public function beforeSave($options = array()) {

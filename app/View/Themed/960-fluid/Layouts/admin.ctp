@@ -3,8 +3,8 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('Sistema de Cobranza'); ?> - 
-		<?php echo 'Sistema de Cobranza'; ?>
+		<?php __('Sistema de Cemento'); ?> - 
+		<?php echo 'Sistema de Cemento'; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -30,7 +30,7 @@
 			<h1 id="branding">
 				<?php
 				echo $this->Html->image('Logo.jpg', array('height' => '100px'));
-				echo $this->Html->link(' Sistema de Gestión de Cobranza', array('controller' => 'index', 'action' => 'index'), array('style' => ' color: white; position: relative; top: -20px;')); ?>
+				echo $this->Html->link(' Sistema de Cemento', array('controller' => 'index', 'action' => 'index'), array('style' => ' color: white; position: relative; top: -20px;')); ?>
 			</h1>
 		</div>
 		<div class="clear"></div>

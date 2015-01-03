@@ -18,7 +18,7 @@
 	<div class="container_16">			
 		<div class="grid_16">
 			<h1 id="branding">
-				<a href="/">Sistema de Gestión de Cobranza</a>
+				<a href="/">Sistema de Cemento</a>
 			</h1>
 		</div>
 		<div class="clear"></div>

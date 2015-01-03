@@ -30,40 +30,7 @@ class AppController extends Controller {
     );
 	
 	public function isAuthorized($user) {
-		
-		// debug($this->request->params);
-		$permisologia = $this->Permiso->findByNombre($user['rol']);
-		// debug($permisologia);
-		
-		if($this->params['controller'] == 'users' && $this->params['action']== 'edit' && $this->params['pass'][0] == $user['id']){			return true;
-		}
-		if($this->params['controller'] == 'users' && $permisologia['Permiso']['usuarios'] == true){
-			return true;
-		}
-		if($this->params['controller'] == 'clientes' && $permisologia['Permiso']['clientes'] == true){
-			return true;
-		}
-		
-		if($this->params['controller'] == 'productos' && $permisologia['Permiso']['productos'] == true){
-			return true;
-		}
-		
-		if($this->params['controller'] == 'permisos' && $permisologia['Permiso']['roles'] == true){
-			return true;
-		}
-		
-		if($this->params['controller'] == 'dias' && $permisologia['Permiso']['dias'] == true){
-			return true;
-		}
-		
-		
-		
-		// if (isset($user['rol']) && $user['rol'] === 'administrador') {
-			// return true;
-		// }
-
-		// Default deny
-		return false;
+		return true;
 	}
 
     public function beforeFilter() {

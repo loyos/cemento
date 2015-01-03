@@ -70,7 +70,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'cobranza',
+		'database' => 'cemento',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

@@ -10,11 +10,8 @@ App::uses('AppController', 'Controller');
  */
 
 class UsersController extends AppController {
-	public $components = array('Paginator', 'Attempt.Attempt');
+	public $components = array('Paginator');
 	public $uses = array('User','Role');
-	
-	public $loginAttemptLimit = 3;
-    public $loginAttemptDuration = '+1 hour';
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -33,22 +30,16 @@ class UsersController extends AppController {
 
 	public function login() {
 		if ($this->request->is('post')) {
-			if ( $this->Attempt->limit('login', $this->loginAttemptLimit) ) {
-				if ($this->Auth->login()) {
-					$this->Attempt->reset('login');
-					if($this->Auth->user('status') == 'activo'){
-						return $this->redirect($this->Auth->redirectUrl());
-					}else{
-						$this->Auth->logout();
-						$this->Session->setFlash(__('Usuario inactivo'), 'error');
-						return true;
-					}
-				}
-			$this->Attempt->fail('login', $this->loginAttemptDuration);
-			$this->Session->setFlash(__('Nombre de usuario o password incorrecto'), 'error');
-			}else{
-				$this->Session->setFlash(__('Usuario bloqueado, intente nuevamente en una hora.'), 'error');
+			if ($this->Auth->login()) {
+				//if($this->Auth->user('status') == 'activo'){
+					return $this->redirect($this->Auth->redirectUrl());
+				// }else{
+					// $this->Auth->logout();
+					// $this->Session->setFlash(__('Usuario inactivo'), 'error');
+					// return true;
+				// }
 			}
+			$this->Session->setFlash(__('Nombre de usuario o password incorrecto'), 'error');
 		}
 	}
 

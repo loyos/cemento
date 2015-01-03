@@ -17730,3 +17730,596 @@ Stack Trace:
 #3 C:\xampp\htdocs\cobranza\lib\Cake\Core\App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2015-01-02 14:35:38 Error: [MissingTableException] Table attempts for model Attempt was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'attempts',
+  'class' => 'Attempt',
+  'ds' => 'default',
+)
+Request URL: /cemento/
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('attempts')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3066): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2979): Model->_findCount('before', Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2914): Model->buildQuery('count', Array)
+#4 C:\xampp\htdocs\cemento\app\Plugin\Attempt\Model\Attempt.php(13): Model->find('count', Array)
+#5 C:\xampp\htdocs\cemento\app\Plugin\Attempt\Model\Attempt.php(17): Attempt->count('::1', 'login')
+#6 C:\xampp\htdocs\cemento\app\Plugin\Attempt\Controller\Component\AttemptComponent.php(35): Attempt->limit('::1', 'login', 3)
+#7 C:\xampp\htdocs\cemento\app\Controller\UsersController.php(36): AttemptComponent->limit('login', 3)
+#8 [internal function]: UsersController->login()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-02 14:38:44 Error: [MissingPluginException] Plugin Attempt could not be found.
+Exception Attributes: array (
+  'plugin' => 'Attempt',
+)
+Request URL: /cemento/
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(227): CakePlugin::path('Attempt')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(549): App::path('Controller/Comp...', 'Attempt')
+#2 [internal function]: App::load('AttemptComponen...')
+#3 [internal function]: spl_autoload_call('AttemptComponen...')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Controller\ComponentCollection.php(110): class_exists('AttemptComponen...')
+#5 C:\xampp\htdocs\cemento\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('Attempt.Attempt', Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(643): ComponentCollection->init(Object(UsersController))
+#7 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(186): Controller->constructClasses()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#9 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-01-02 14:39:26 Error: [MissingPluginException] Plugin Attempt could not be found.
+Exception Attributes: array (
+  'plugin' => 'Attempt',
+)
+Request URL: /cemento/
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(227): CakePlugin::path('Attempt')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(549): App::path('Controller/Comp...', 'Attempt')
+#2 [internal function]: App::load('AttemptComponen...')
+#3 [internal function]: spl_autoload_call('AttemptComponen...')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Controller\ComponentCollection.php(110): class_exists('AttemptComponen...')
+#5 C:\xampp\htdocs\cemento\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('Attempt.Attempt', Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(643): ComponentCollection->init(Object(UsersController))
+#7 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(186): Controller->constructClasses()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#9 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-01-02 14:40:13 Error: [MissingPluginException] Plugin Attempt could not be found.
+Exception Attributes: array (
+  'plugin' => 'Attempt',
+)
+Request URL: /cemento/
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(227): CakePlugin::path('Attempt')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(549): App::path('Controller/Comp...', 'Attempt')
+#2 [internal function]: App::load('AttemptComponen...')
+#3 [internal function]: spl_autoload_call('AttemptComponen...')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Controller\ComponentCollection.php(110): class_exists('AttemptComponen...')
+#5 C:\xampp\htdocs\cemento\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('Attempt.Attempt', Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(643): ComponentCollection->init(Object(UsersController))
+#7 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(186): Controller->constructClasses()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#9 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-01-02 14:45:21 Error: Fatal Error (1): Call to a member function reset() on a non-object in [C:\xampp\htdocs\cemento\app\Controller\UsersController.php, line 34]
+2015-01-02 14:45:21 Error: [FatalErrorException] Call to a member function reset() on a non-object
+Request URL: /cemento/
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 34)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 34, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 34, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 14:46:56 Error: Fatal Error (1): Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in [C:\xampp\htdocs\cemento\lib\Cake\Error\exceptions.php, line 151]
+2015-01-02 14:46:56 Error: [FatalErrorException] Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]])
+Request URL: /cemento/users/edit/%23
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151)
+#1 [internal function]: ErrorHandler::handleError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 14:47:05 Error: Fatal Error (1): Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in [C:\xampp\htdocs\cemento\lib\Cake\Error\exceptions.php, line 151]
+2015-01-02 14:47:05 Error: [FatalErrorException] Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]])
+Request URL: /cemento/users/edit/%23
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151)
+#1 [internal function]: ErrorHandler::handleError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 14:47:13 Error: Fatal Error (1): Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in [C:\xampp\htdocs\cemento\lib\Cake\Error\exceptions.php, line 151]
+2015-01-02 14:47:13 Error: [FatalErrorException] Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]])
+Request URL: /cemento/users/edit/%23
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151)
+#1 [internal function]: ErrorHandler::handleError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 14:47:19 Error: Fatal Error (1): Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in [C:\xampp\htdocs\cemento\lib\Cake\Error\exceptions.php, line 151]
+2015-01-02 14:47:19 Error: [FatalErrorException] Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]])
+Request URL: /cemento/users/edit/%23
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151)
+#1 [internal function]: ErrorHandler::handleError(1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Wrong parameter...', 'C:\xampp\htdocs...', 151, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 17:27:30 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'usuario_id' cannot be null
+Request URL: /cemento/usuarios/index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ce...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ce...')
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1854): DboSource->create(Object(Pedido), Array, Array)
+#4 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(31): Model->save(Array)
+#5 [internal function]: UsuariosController->index()
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#9 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-01-02 19:21:13 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pedido.bolsas' in 'field list'
+Request URL: /cemento/usuarios
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT SUM(`Ped...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT SUM(`Ped...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT SUM(`Ped...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Pedido), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(57): Model->find('all', Array)
+#7 [internal function]: UsuariosController->index()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-02 19:23:22 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'usuario_id' in where clause is ambiguous
+Request URL: /cemento/usuarios
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Periodo...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Periodo...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Periodo...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Periodo), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('last', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(62): Model->find('last', Array)
+#7 [internal function]: UsuariosController->index()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-02 19:25:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+Request URL: /cemento/usuarios
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Periodo...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Periodo...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Periodo...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Periodo), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('first', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(63): Model->find('first', Array)
+#7 [internal function]: UsuariosController->index()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-02 19:46:46 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'parseCriteria' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('parseCriteria', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('parseCriteria', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('parseCriteria', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('parseCriteria', Array, Object(Pedido))
+#5 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(15): Model->__call('parseCriteria', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(15): Pedido->parseCriteria(Array)
+#7 [internal function]: PedidosController->index()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-02 19:48:23 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'parseCriteria' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('parseCriteria', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('parseCriteria', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('parseCriteria', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('parseCriteria', Array, Object(Pedido))
+#5 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(15): Model->__call('parseCriteria', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(15): Pedido->parseCriteria(Array)
+#7 [internal function]: PedidosController->index()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-02 22:11:07 Error: Fatal Error (1): Call to a member function save() on a non-object in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 57]
+2015-01-02 22:11:07 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /cemento/pedidos/entregar/6
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 57)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 57, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 57, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 22:11:35 Error: Fatal Error (1): Call to a member function save() on a non-object in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 57]
+2015-01-02 22:11:35 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /cemento/pedidos/entregar/6
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 57)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 57, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 57, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-02 22:12:00 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'bolsas' cannot be null
+Request URL: /cemento/pedidos/entregar/6
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ce...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ce...')
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1854): DboSource->create(Object(Periodo), Array, Array)
+#4 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(91): Model->save(Array)
+#5 [internal function]: PedidosController->entregar('6')
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#9 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-01-02 22:55:30 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pedido' in 'where clause'
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Usuario...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Usuario), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PaginatorComponent->paginate(Array)
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 00:12:29 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 18]
+2015-01-03 00:12:29 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 18)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 18, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 18, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 00:12:50 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 18]
+2015-01-03 00:12:50 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 18)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 18, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 18, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 00:17:11 Error: Fatal Error (4): syntax error, unexpected 'var' (T_VAR) in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 17]
+2015-01-03 00:17:11 Error: [FatalErrorException] syntax error, unexpected 'var' (T_VAR)
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 17, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 17, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 00:17:26 Error: Fatal Error (1): Cannot access empty property in [C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php, line 437]
+2015-01-03 00:17:26 Error: [FatalErrorException] Cannot access empty property
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Cannot access e...', 'C:\xampp\htdocs...', 437)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot access e...', 'C:\xampp\htdocs...', 437, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot access e...', 'C:\xampp\htdocs...', 437, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 00:18:35 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 17]
+2015-01-03 00:18:35 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 17, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 17, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 00:20:31 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fields' in 'where clause'
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Pedido), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(20): PaginatorComponent->paginate('Pedido')
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 00:50:18 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 19]
+2015-01-03 00:50:18 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 19)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 19, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 19, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 01:04:54 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 19]
+2015-01-03 01:04:54 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 19)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 19, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 19, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 01:07:35 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'validateSearch' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('validateSearch', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('validateSearch', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('validateSearch', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('validateSearch', Array, Object(Usuario))
+#5 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Model->__call('validateSearch', Array)
+#6 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Usuario->validateSearch()
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PrgComponent->commonProcess()
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 01:08:20 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'validateSearch' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('validateSearch', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('validateSearch', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('validateSearch', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('validateSearch', Array, Object(Usuario))
+#5 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Model->__call('validateSearch', Array)
+#6 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Usuario->validateSearch()
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PrgComponent->commonProcess()
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 01:55:01 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'validateSearch' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('validateSearch', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('validateSearch', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('validateSearch', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('validateSearch', Array, Object(Usuario))
+#5 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Model->__call('validateSearch', Array)
+#6 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Usuario->validateSearch()
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PrgComponent->commonProcess()
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 02:01:53 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'validateSearch' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('validateSearch', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('validateSearch', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('validateSearch', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('validateSearch', Array, Object(Usuario))
+#5 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Model->__call('validateSearch', Array)
+#6 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Usuario->validateSearch()
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PrgComponent->commonProcess()
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 02:03:22 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'validateSearch' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('validateSearch', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('validateSearch', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('validateSearch', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('validateSearch', Array, Object(Usuario))
+#5 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Model->__call('validateSearch', Array)
+#6 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Usuario->validateSearch()
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PrgComponent->commonProcess()
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 02:25:55 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\xampp\htdocs\cemento\app\Model\Pedido.php, line 81]
+2015-01-03 02:25:55 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 81)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 81, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 81, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 02:29:16 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'validateSearch' at line 1
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('validateSearch', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('validateSearch', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('validateSearch', Array, Array)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(808): DboSource->query('validateSearch', Array, Object(Usuario))
+#5 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Model->__call('validateSearch', Array)
+#6 C:\xampp\htdocs\cemento\app\Plugin\Search\Controller\Component\PrgComponent.php(377): Usuario->validateSearch()
+#7 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(17): PrgComponent->commonProcess()
+#8 [internal function]: PedidosController->index()
+#9 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-01-03 03:55:39 Error: Fatal Error (4): syntax error, unexpected ''num_bolsas'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php, line 87]
+2015-01-03 03:55:39 Error: [FatalErrorException] syntax error, unexpected ''num_bolsas'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /cemento/usuarios/index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 87)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 87, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 87, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 04:01:06 Error: Fatal Error (4): syntax error, unexpected 'else' (T_ELSE) in [C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php, line 111]
+2015-01-03 04:01:06 Error: [FatalErrorException] syntax error, unexpected 'else' (T_ELSE)
+Request URL: /cemento/usuarios/index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 111)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 111, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 111, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 06:01:20 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fecha_fin DESC' at line 1
+Request URL: /cemento/parametros
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT DISTINCT...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT DISTINCT...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT DISTINCT...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Periodo), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\ParametrosController.php(20): Model->find('all', Array)
+#7 [internal function]: ParametrosController->index()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ParametrosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ParametrosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-03 06:07:56 Error: [MissingViewException] View file "C:\xampp\htdocs\cemento\app\View\Themed\960-fluid\Parametros\add_dia.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\cemento\\app\\View\\Themed\\960-fluid\\Parametros\\add_dia.ctp',
+)
+Request URL: /cemento/parametros/add_dia
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ParametrosController), Object(CakeRequest))
+#4 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-01-03 06:08:30 Error: [MissingViewException] View file "C:\xampp\htdocs\cemento\app\View\Themed\960-fluid\Parametros\add_dia.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\cemento\\app\\View\\Themed\\960-fluid\\Parametros\\add_dia.ctp',
+)
+Request URL: /cemento/parametros/add_dia
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ParametrosController), Object(CakeRequest))
+#4 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-01-03 06:28:46 Error: Fatal Error (4): syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION) in [C:\xampp\htdocs\cemento\app\Controller\AppController.php, line 38]
+2015-01-03 06:28:46 Error: [FatalErrorException] syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION)
+Request URL: /cemento/usuarios/admin_index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 38)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 38, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 38, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 06:28:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /cemento/css/font-awesome/font-awesome.min.css
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-03 06:28:47 Error: Fatal Error (4): syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION) in [C:\xampp\htdocs\cemento\app\Controller\AppController.php, line 38]
+2015-01-03 06:28:47 Error: [FatalErrorException] syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION)
+Request URL: /cemento/css/font-awesome/font-awesome.min.css
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 38)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 38, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 38, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-03 06:29:25 Error: [CakeException] $controller does not implement an isAuthorized() method.
+Request URL: /cemento/usuarios/admin_index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Controller\Component\Auth\BaseAuthorize.php(72): ControllerAuthorize->controller(Object(UsuariosController))
+#1 C:\xampp\htdocs\cemento\lib\Cake\Controller\Component\AuthComponent.php(501): BaseAuthorize->__construct(Object(ComponentCollection), Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Controller\Component\AuthComponent.php(463): AuthComponent->constructAuthorize()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Controller\Component\AuthComponent.php(309): AuthComponent->isAuthorized(Array)
+#4 [internal function]: AuthComponent->startup(Object(UsuariosController))
+#5 C:\xampp\htdocs\cemento\lib\Cake\Utility\ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 C:\xampp\htdocs\cemento\lib\Cake\Event\CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(187): Controller->startupProcess()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-03 06:40:11 Error: [MissingActionException] Action UsuariosController::add() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'add',
+)
+Request URL: /cemento/usuarios/add
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-01-03 06:47:10 Error: Fatal Error (1): Call to undefined method UsuariosController::beforeSave() in [C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php, line 164]
+2015-01-03 06:47:10 Error: [FatalErrorException] Call to undefined method UsuariosController::beforeSave()
+Request URL: /cemento/usuarios/edit/9
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 164)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 164, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\xampp\htdocs...', 164, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
