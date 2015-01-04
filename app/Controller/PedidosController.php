@@ -111,20 +111,20 @@ class PedidosController extends AppController {
 				$this->Entrega->save($nueva_entrega);
 			}
 			
-			// $datos_usuario = $this->Usuario->findById($pedido['Usuario']['id']);
-			// $correo = $datos_usuario['Usuario']['correo'];
-			// $nombre = $datos_usuario['Usuario']['nombre'];
-			//$num_bolsas = $this->data['Pedido']['cantidad_aprobada'];
-			//fecha_entrega = $this->data['Pedido']['fecha_entrega'];
+			$datos_usuario = $this->Usuario->findById($pedido['Usuario']['id']);
+			$correo = $datos_usuario['Usuario']['correo'];
+			$nombre = $datos_usuario['Usuario']['nombre'];
+			$num_bolsas = $this->data['Pedido']['cantidad_aprobada'];
+			$fecha_entrega = $this->data['Pedido']['fecha_entrega'];
 			
-			// $Email = new CakeEmail();
-			// $Email->from('cemento');
-			// $Email->emailFormat('html');
-			// $Email->to($correo);
-			// $Email->subject(__('Cemento'));
-			// $Email->template('pedido_asignado');
-			// $Email->viewVars(compact('nombre','num_bolsas','fecha_entrega'));
-			// $Email->send();
+			$Email = new CakeEmail();
+			$Email->from(array('cemento@cemento.com' => 'Cemento.com'));
+			$Email->emailFormat('html');
+			$Email->to($correo);
+			$Email->subject(__('Cemento'));
+			$Email->template('pedido_asignado');
+			$Email->viewVars(compact('nombre','num_bolsas','fecha_entrega'));
+			$Email->send();
 				
 			$this->redirect(array('action' => 'index'));
 		}
