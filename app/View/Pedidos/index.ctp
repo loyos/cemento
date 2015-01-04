@@ -12,6 +12,9 @@
 			<?php echo $this->Paginator->sort('Usuario.nombre','Nombre'); ?>
 			</th>
 			<th>
+			<?php echo $this->Paginator->sort('Usuario.correo','Correo'); ?>
+			</th>
+			<th>
 			<?php echo $this->Paginator->sort('Usuario.direccion','Dirección'); ?>
 			</th>
 			<th>
@@ -32,6 +35,9 @@
 		<tr>
 			<td>
 				<?php echo $p['Usuario']['nombre']; ?>
+			</td>
+			<td>
+				<?php echo $p['Usuario']['correo']; ?>
 			</td>
 			<td>
 				<?php echo $p['Usuario']['direccion']; ?>
@@ -72,15 +78,15 @@
 							),array('escape'=>false)
 						);
 					}
-				echo ' ';
-						echo $this->Html->link(
-							$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Solicitud')) . '  ',
-							array(
-							'controller' => 'dias',
-							'action' => 'delete',
-							$p['Pedido']['id']
-							),array('escape'=>false)
-						);
+				// echo ' ';
+						// echo $this->Html->link(
+							// $this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Solicitud')) . '  ',
+							// array(
+							// 'controller' => 'dias',
+							// 'action' => 'delete',
+							// $p['Pedido']['id']
+							// ),array('escape'=>false)
+						// );
 				?>
 			</td>
 		</tr>

@@ -14,7 +14,7 @@ class PedidosController extends AppController {
 	
 	public function index() {
 		$this->Paginator->settings = $this->paginate;
-		$this->Paginator->settings['order'] = 'Usuario.bolsas_actual, Pedido.fecha DESC';
+		$this->Paginator->settings['order'] = 'Usuario.bolsas_actual, Pedido.fecha';
 		$this->Prg->commonProcess();
 		$this->Paginator->settings['conditions'] = $this->Pedido->parseCriteria($this->Prg->parsedParams());
 		array_push($this->Paginator->settings['conditions'],array('Pedido.abierto' => 1));
@@ -157,6 +157,13 @@ class PedidosController extends AppController {
 		}
 		$this->set(compact('cantidad_restante'));
 		$this->set('pedidos',$this->Paginator->paginate('Pedido'));
+	}
+	
+	function delete($id) {
+		$this->Pedido->deleteAll(array(
+			'Pedido.id' => $id
+		));
+		$this->redirect(array('action' => 'historial'));
 	}
 	
 	function permitir(){}

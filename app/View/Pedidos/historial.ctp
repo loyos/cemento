@@ -77,14 +77,16 @@
 						// );
 					// }
 				// echo ' ';
+					if ($p['Pedido']['abierto'] == 0) {
 						echo $this->Html->link(
 							$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Solicitud')) . '  ',
 							array(
-							'controller' => 'dias',
+							'controller' => 'pedidos',
 							'action' => 'delete',
 							$p['Pedido']['id']
 							),array('escape'=>false)
 						);
+					}
 				?>
 			</td>
 		</tr>

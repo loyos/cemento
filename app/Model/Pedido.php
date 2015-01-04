@@ -33,8 +33,11 @@ class Pedido extends AppModel {
 		'ced' => array(
 			'type' => 'like',
 			'field' => 'Usuario.cedula',
+		),
+		'dir' => array(
+			'type' => 'like',
+			'field' => 'Usuario.direccion',
 		)
-		
     );
 	
 	 public $validate = array(
