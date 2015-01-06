@@ -6,7 +6,7 @@ class UsuariosController extends AppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('logout', 'index','login');
+		$this->Auth->allow('logout','index','login');
 	}
 	
 	function beforeSave() {
@@ -55,7 +55,7 @@ class UsuariosController extends AppController {
 					
 					//Verifico el numero de bolsas de pedidos abiertos
 					$pedidos = $this->Pedido->find('all',array(
-						'fields' => array('SUM(Pedido.num_bolsas)'),
+						'fields' => array('SUM(Pedido.cantidad)'),
 						'conditions' => array(
 							'Pedido.abierto' => 1,
 							'Pedido.usuario_id' => $usuario_id
@@ -74,11 +74,11 @@ class UsuariosController extends AppController {
 					}
 					
 					if (!empty($pedidos)) { //hay pedidos abiertos
-						if (($data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`num_bolsas`)']) > $max_bolsas) {
+						if (($data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`cantidad`)']) > $max_bolsas) {
 							$this->Session->setFlash('Ya ha realizado solicitudes y el monto total excede al máximo de bolsas de cemento permitido','error');
 						} else {		
 							if ($hay_periodo_abierto) {
-								if (($periodo['Periodo']['bolsas'] + $data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(Pedido.num_bolsas)']) > $max_bolsas) {
+								if (($periodo['Periodo']['bolsas'] + $data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`cantidad`)']) > $max_bolsas) {
 									$this->Session->setFlash('El número de bolsas solicitadas mas los pedidos pendientes supera el número de bolsas maximas cada '.$dias_espera,'error');
 								}
 							} else {
@@ -93,6 +93,21 @@ class UsuariosController extends AppController {
 							
 								$this->Pedido->save($pedido);
 								$this->Session->setFlash('La solicitud se generó con exito','success');
+								
+								//Envio el correo al usuario de que la solicitud fue enviada 
+							
+								$datos_usuario = $this->Usuario->findById($usuario_id);
+								$correo = $datos_usuario['Usuario']['correo'];
+								$nombre = $datos_usuario['Usuario']['nombre'];
+								
+								$Email = new CakeEmail();
+								$Email->from(array('cemento@cemento.com' => 'Cemento.com'));
+								$Email->emailFormat('html');
+								$Email->to($correo);
+								$Email->subject(__('Cemento'));
+								$Email->template('pedido_recibido');
+								$Email->viewVars(compact('nombre'));
+								$Email->send();
 								$this->redirect(array('action' => 'index'));
 							}
 						}
@@ -108,7 +123,6 @@ class UsuariosController extends AppController {
 							$pedido = array('Pedido' => array(
 								'usuario_id' => $usuario_id,
 								'cantidad' => $data['Usuario']['num_bolsas'],
-								'num_bolsas' => $data['Usuario']['num_bolsas'],
 							));
 						
 							$this->Pedido->save($pedido);
@@ -116,18 +130,18 @@ class UsuariosController extends AppController {
 							
 							//Envio el correo al usuario de que la solicitud fue enviada 
 							
-							// $datos_usuario = $this->Usuario->findById($usuario_id);
-							// $correo = $datos_usuario['Usuario']['correo'];
-							// $nombre = $datos_usuario['Usuario']['nombre'];
+							$datos_usuario = $this->Usuario->findById($usuario_id);
+							$correo = $datos_usuario['Usuario']['correo'];
+							$nombre = $datos_usuario['Usuario']['nombre'];
 							
-							// $Email = new CakeEmail();
-							// $Email->from(array('cemento@cemento.com' => 'Cemento.com'));
-							// $Email->emailFormat('html');
-							// $Email->to($correo);
-							// $Email->subject(__('Cemento'));
-							// $Email->template('pedido_recibido');
-							// $Email->viewVars(compact('nombre'));
-							// $Email->send();
+							$Email = new CakeEmail();
+							$Email->from(array('cemento@cemento.com' => 'Cemento.com'));
+							$Email->emailFormat('html');
+							$Email->to($correo);
+							$Email->subject(__('Cemento'));
+							$Email->template('pedido_recibido');
+							$Email->viewVars(compact('nombre'));
+							$Email->send();
 			
 							$this->redirect(array('action' => 'index'));
 						}
@@ -319,7 +333,7 @@ class UsuariosController extends AppController {
 			));
 			if (!empty($pedidos)) {
 				foreach ($pedidos as $p) {
-					$bolsas_actual = $bolsas_actual+$p['Pedido']['num_bolsas'];
+					$bolsas_actual = $bolsas_actual+$p['Pedido']['cantidad'];
 				}
 			}
 			

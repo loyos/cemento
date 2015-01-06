@@ -2,29 +2,17 @@
 <div class = "grid_4">&nbsp;</div>
 <div class = "row login grid_8 ">
 	<fieldset>
-		<legend> Entrega de Pedido </legend>
-		(*) Campos obligatorios  <br><br>
+		<legend> Entrega de Pedidos </legend>
 		<?php 
 			echo $this->Form->create('Pedido', array('class' => 'form-horizontal', 'role' => 'form', 'autocomplete' => 'off'));
 		?>
 			
 			  <div class="form-group">
 				<div class="col-sm-10 col-md-offset-1 ">
-				  Cantidad solicitada faltante
+				  Cantidad total de bolsas
 				  <?php
-					echo $pedido['Pedido']['num_bolsas'];
+					echo $cantidad_bolsas;
 				  ?>
-				</div>
-			  </div>
-			  <div class="form-group">
-				<div class="col-sm-10 col-md-offset-1">
-					<?php
-						echo $this->Form->input('cantidad_aprobada',array(
-							'label' => 'Cantidad aprobada para la entrega *',
-							'class' => 'form-control',
-							'value' => $pedido['Pedido']['num_bolsas']
-						));
-					?>
 				</div>
 			  </div>
 			  <div class="form-group">
@@ -35,13 +23,17 @@
 							'class' => 'form-control',
 							'type' => 'datetime'
 						));
-						echo $this->Form->input('pedido_id',array(
-							'value' => $pedido['Pedido']['id'],
-							'type' => 'hidden'
-						));
-						echo $this->Form->input('cantidad_solicitada',array(
-							'value' => $pedido['Pedido']['num_bolsas'],
-							'type' => 'hidden'
+						foreach ($pedidos as $p) {
+							echo $this->Form->input('solicitudes',array(
+								'name' => 'solicitudes[]', 
+								'value' => $p,
+								'type' => 'hidden',
+							));
+						}
+						echo $this->Form->input('paso',array(
+							'name' => 'paso',
+							'value' => '2',
+							'type' => 'hidden',
 						));
 					?>
 				</div>

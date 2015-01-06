@@ -254,7 +254,6 @@ if ($activado) { ?>
 				data:{cedula:$("#UsuarioCedula").val()},
 				url:"<?php echo Router::url(array('action'=>'datos_usuario')); ?>",
 				success:function(data){
-					console.debug(data.datos.Parroquia.id);
 					if(data.result){
 						$("#UsuarioNombre").val(data.datos.Usuario.nombre);
 						$("#UsuarioTelefono").val(data.datos.Usuario.telefono);

@@ -89,7 +89,7 @@
 				<div class="col-sm-10 col-md-offset-1">
 					<?php
 						echo $this->Form->input('max_bolsas',array(
-							'label' => 'Cantidad máxima de bolsas por persona',
+							'label' => 'Cantidad máxima de bolsas',
 							'class' => 'form-control',
 							'value' => $parametros['Parametro']['max_bolsas']
 						));

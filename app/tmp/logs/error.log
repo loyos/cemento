@@ -19096,3 +19096,87 @@ Stack Trace:
 #3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2015-01-06 17:33:45 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ';' in [C:\xampp\htdocs\cemento\app\View\Pedidos\index.ctp, line 91]
+2015-01-06 17:33:45 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ';'
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 91)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 91, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 91, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 17:43:12 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'bolsas' cannot be null
+Request URL: /cemento/pedidos/entregar
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ce...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ce...')
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1854): DboSource->create(Object(Periodo), Array, Array)
+#4 C:\xampp\htdocs\cemento\app\Controller\PedidosController.php(91): Model->save(Array)
+#5 [internal function]: PedidosController->entregar()
+#6 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest))
+#9 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-01-06 18:28:48 Error: Fatal Error (4): syntax error, unexpected ''id'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [C:\xampp\htdocs\cemento\app\View\Pedidos\index.ctp, line 60]
+2015-01-06 18:28:48 Error: [FatalErrorException] syntax error, unexpected ''id'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 60)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 60, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 60, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 18:32:20 Error: Fatal Error (4): syntax error, unexpected 'echo' (T_ECHO) in [C:\xampp\htdocs\cemento\app\View\Pedidos\index.ctp, line 104]
+2015-01-06 18:32:20 Error: [FatalErrorException] syntax error, unexpected 'echo' (T_ECHO)
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 104)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 104, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 104, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 19:40:42 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\xampp\htdocs\cemento\app\Controller\PedidosController.php, line 54]
+2015-01-06 19:40:42 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /cemento/pedidos
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 54)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 54, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 54, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 19:44:46 Error: Fatal Error (4): syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [C:\xampp\htdocs\cemento\app\View\Pedidos\entregar.ctp, line 29]
+2015-01-06 19:44:46 Error: [FatalErrorException] syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /cemento/pedidos/entregar
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 29)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 29, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 29, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 19:45:13 Error: Fatal Error (4): syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [C:\xampp\htdocs\cemento\app\View\Pedidos\entregar.ctp, line 29]
+2015-01-06 19:45:13 Error: [FatalErrorException] syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /cemento/pedidos/entregar
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 29)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 29, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 29, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 19:45:30 Error: Fatal Error (4): syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [C:\xampp\htdocs\cemento\app\View\Pedidos\entregar.ctp, line 35]
+2015-01-06 19:45:30 Error: [FatalErrorException] syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /cemento/pedidos/entregar
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 35, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 35, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

@@ -6,10 +6,29 @@
 	<?php echo $this->element('pedidos_search'); ?>
 </div>
 
-<table class="table table-hover user_table">
+<table class="table table-hover user_table" style="border-top:none;border-bottom:none;border-left:none;border-right:1px solid #bbb">
 		<tr>
-			<th>
-			<?php echo $this->Paginator->sort('Usuario.nombre','Nombre'); ?>
+			<th style = "border-left:1px solid #bbb;">
+			<?php 
+			echo $this->Form->create('Pedido',array('url' => array(
+				'controller' => 'pedidos',
+				'action' => 'entregar'
+				)
+			));
+			echo $this->Form->input('paso',array(
+				'name' => 'paso',
+				'type' => 'hidden',
+				'label' => false,
+				'value' => '1'
+			));
+			echo $this->Form->input('seleccionar_todos',array(
+				'name' => 'seleccionar_todos',
+				'type' => 'checkbox',
+				'label' => false,
+				'style' => 'float:left',
+				'id' => 'seleccionar_todos'
+			));
+			echo $this->Paginator->sort('Usuario.nombre','Nombre'); ?>
 			</th>
 			<th>
 			<?php echo $this->Paginator->sort('Usuario.correo','Correo'); ?>
@@ -23,18 +42,24 @@
 			<th>
 			<?php echo $this->Paginator->sort('Entrega.fecha','Fecha de entrega'); ?>
 			</th>
-			<th>Cantidad restante</th>
 			<th>Cantidad solicitada</th>
-			<th style = "text-align: center;">
-				<?php echo 'Acciones'; ?>
-			</th>
+			<th>Cantidad restante</th>
 		</tr>
 <?php
 	foreach($pedidos as $p){ ?>
 		
 		<tr>
-			<td>
-				<?php echo $p['Usuario']['nombre']; ?>
+			<td  style = "border-left:1px solid #bbb;">
+				<?php 
+				echo $this->Form->input('seleccionar',array(
+					'name' => 'solicitud['.$p['Pedido']['id'].']',
+					'type' => 'checkbox',
+					'label' => false,
+					'style' => 'float:left',
+					'class' => 'solicitud',
+					'id' => $p['Pedido']['cantidad']
+				));
+				echo $p['Usuario']['nombre']; ?>
 			</td>
 			<td>
 				<?php echo $p['Usuario']['correo']; ?>
@@ -61,43 +86,31 @@
 				?>
 			</td>
 			<td>
-				<?php echo $cantidad_restante[$p['Usuario']['id']]; ?>
-			</td>
-			<td>
 				<?php echo $p['Pedido']['cantidad']; ?>
 			</td>
-			<td style = "text-align: center;">
-				<?php
-					if ($p['Pedido']['abierto'] == 1) {
-						echo $this->Html->link(
-							$this->Html->image('activate.png', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Aceptar solicitud')) . '  ',
-							array(
-							 'controller' => 'pedidos',
-							 'action' => 'entregar',
-							 $p['Pedido']['id']
-							),array('escape'=>false)
-						);
-					}
-				// echo ' ';
-						// echo $this->Html->link(
-							// $this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Solicitud')) . '  ',
-							// array(
-							// 'controller' => 'dias',
-							// 'action' => 'delete',
-							// $p['Pedido']['id']
-							// ),array('escape'=>false)
-						// );
-				?>
+			<td>
+				<?php echo $cantidad_restante[$p['Usuario']['id']]; ?>
 			</td>
 		</tr>
-		
 <?php
 	}
 ?>
-
+	<tr>
+		<td style="background:none;border-top:none;border-bottom:none"></td><td style="background:none;border-top:none;border-bottom:none"></td><td style="background:none;border-top:none;border-bottom:none"></td><td style="background:none;border-top:none;border-bottom:none"></td><td style="background:none;border-top:none;border-bottom:none"></td>
+		<td style = "border-left:1px solid #bbb;border-right:1px solid #bbb">
+			<div id="cantidad_total">
+				0
+			</div>
+			<?php 
+			echo $this->Form->input('bolsas_total',array(
+				'type' => 'hidden',
+				'value' => 0
+			));
+			?>
+		</td>
+	</tr>
 </table>
-
-<div class="listas index grid_12">
+<div class="listas index grid_12" style="width:68%">
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -114,3 +127,42 @@
 	?>
 	</div>
 	</div>
+<?php 
+echo $this->Form->submit('Aceptar Solicitudes');
+echo $this->Form->end();
+ ?>
+<script>
+	$(document).ready(function () {
+		var cantidad_total = 0;
+		$("#seleccionar_todos").change(function () {
+			var cantidad_total = 0;
+			if ($(this).is(':checked')) {
+				$("input[type=checkbox].solicitud").prop('checked', true); //todos los check
+				$('input[type=checkbox].solicitud').each(function () {
+					if (this.checked) {
+						cantidad_total = parseInt(cantidad_total) + parseInt($(this).attr('id'));
+						$('#cantidad_total').html(cantidad_total);
+						$('#PedidoBolsasTotal').val(cantidad_total);
+					}
+				});
+				cantidad_total = 0;
+			} else {
+				$("input[type=checkbox].solicitud").prop('checked', false); //todos los check
+				$('#cantidad_total').html(cantidad_total);
+				$('#PedidoBolsasTotal').val(cantidad_total);
+				cantidad_total = 0;
+			}
+		});
+		
+		$("input[type=checkbox].solicitud").change(function () {
+			cantidad_total = 0;
+			$('input[type=checkbox].solicitud').each(function () {
+				if (this.checked) {
+					cantidad_total = parseInt(cantidad_total) + parseInt($(this).attr('id'));
+					$('#cantidad_total').html(cantidad_total);
+					$('#PedidoBolsasTotal').val(cantidad_total);
+				}
+			});
+		});
+	});
+</script>
