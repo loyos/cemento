@@ -1,6 +1,5 @@
 <?php
-App::uses('AppController', 'Controller');
-
+App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 	public $components = array('Paginator','Session');
 	public $uses = array('Usuario','Pedido','Periodo','Parametro','User','Dia','Estado','Parroquia','Municipio','Ciudad');
@@ -114,6 +113,22 @@ class UsuariosController extends AppController {
 						
 							$this->Pedido->save($pedido);
 							$this->Session->setFlash('La solicitud se generó con exito','success');
+							
+							//Envio el correo al usuario de que la solicitud fue enviada 
+							
+							// $datos_usuario = $this->Usuario->findById($usuario_id);
+							// $correo = $datos_usuario['Usuario']['correo'];
+							// $nombre = $datos_usuario['Usuario']['nombre'];
+							
+							// $Email = new CakeEmail();
+							// $Email->from(array('cemento@cemento.com' => 'Cemento.com'));
+							// $Email->emailFormat('html');
+							// $Email->to($correo);
+							// $Email->subject(__('Cemento'));
+							// $Email->template('pedido_recibido');
+							// $Email->viewVars(compact('nombre'));
+							// $Email->send();
+			
 							$this->redirect(array('action' => 'index'));
 						}
 					}
