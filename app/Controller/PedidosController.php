@@ -89,6 +89,16 @@ class PedidosController extends AppController {
 					);
 					$this->Periodo->save($nuevo_periodo);
 					$periodo_id = $this->Periodo->id;
+					
+					//Actualizo las bolsas actuales del usuario
+					$update_usuario = array(
+						'Usuario' => array(
+							'id' => $pedido['Usuario']['id'],
+							'bolsas_actual' => 0
+						)
+					);
+					
+					$this->Usuario->save($update_usuario);
 				}
 				
 				$p = $this->Periodo->findById($periodo_id);

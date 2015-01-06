@@ -18778,3 +18778,321 @@ Request URL: /cemento/dias/delete/2
 Stack Trace:
 #0 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-01-06 02:35:19 Error: [MissingControllerException] Controller class DiasController could not be found.
+Exception Attributes: array (
+  'class' => 'DiasController',
+  'plugin' => NULL,
+)
+Request URL: /cemento/dias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-06 03:35:36 Error: [MissingActionException] Action UsuariosController::inex() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'inex',
+)
+Request URL: /cemento/usuarios/inex
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-01-06 03:40:40 Error: Fatal Error (4): syntax error, unexpected '>' in [C:\xampp\htdocs\cemento\app\View\Themed\960-fluid\Layouts\usuario.ctp, line 34]
+2015-01-06 03:40:40 Error: [FatalErrorException] syntax error, unexpected '>'
+Request URL: /cemento/usuarios/index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 34)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 34, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 34, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 04:10:53 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php, line 140]
+2015-01-06 04:10:53 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /cemento/usuarios/index
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 140)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 140, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 140, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-06 04:27:20 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'municipio_id' in 'where clause'
+Request URL: /cemento/usuarios/municipios
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Municip...', Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Municip...', Array, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Municip...', false)
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Municipio), Array)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#6 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(223): Model->find('all', Array)
+#7 [internal function]: UsuariosController->municipios()
+#8 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#9 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#11 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-01-06 04:33:55 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(249): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:37:20 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(249): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:39:25 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(250): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:40:37 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(250): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:41:10 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(251): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:41:58 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(251): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:42:59 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(224): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:43:29 Error: [MissingActionException] Action UsuariosController::parroquias Failed to load resource: the server responded with a status of 500 (Internal Server Error)() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'parroquias Failed to load resource: the server responded with a status of 500 (Internal Server Error)',
+)
+Request URL: /cemento/usuarios/parroquias%20Failed%20to%20load%20resource:%20the%20server%20responded%20with%20a%20status%20of%20500%20(Internal%20Server%20Error)
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-01-06 04:45:03 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(224): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:45:43 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(224): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 04:46:43 Error: [MissingTableException] Table ciudads for model Ciudad was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'ciudads',
+  'class' => 'Ciudad',
+  'ds' => 'default',
+)
+Request URL: /cemento/usuarios/parroquias
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(3566): Model->setSource('ciudads')
+#1 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(1369): Model->getDataSource()
+#2 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(2490): Model->schema()
+#3 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1731): DboSource->fields(Object(Ciudad), 'Ciudad', '')
+#4 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1233): DboSource->generateAssociationQuery(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true)
+#5 C:\xampp\htdocs\cemento\lib\Cake\Model\Datasource\DboSource.php(1137): DboSource->queryAssociation(Object(Parroquia), Object(Ciudad), 'hasMany', 'Ciudad', Array, Array, true, Array, 0, Array)
+#6 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2947): DboSource->read(Object(Parroquia), Array)
+#7 C:\xampp\htdocs\cemento\lib\Cake\Model\Model.php(2919): Model->_readDataSource('all', Array)
+#8 C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php(223): Model->find('all', Array)
+#9 [internal function]: UsuariosController->parroquias()
+#10 C:\xampp\htdocs\cemento\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#11 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-06 05:22:53 Error: [MissingActionException] Action UsuariosController::datos_usuario() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'datos_usuario',
+)
+Request URL: /cemento/usuarios/datos_usuario
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\cemento\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\cemento\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-01-06 05:58:03 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\xampp\htdocs\cemento\app\Controller\UsuariosController.php, line 296]
+2015-01-06 05:58:03 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /cemento/
+Stack Trace:
+#0 C:\xampp\htdocs\cemento\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 296)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 296, Array)
+#2 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 296, Array)
+#3 C:\xampp\htdocs\cemento\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

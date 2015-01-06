@@ -19,6 +19,12 @@ class Usuario extends AppModel {
 		),
 	);
 	
+	public $belongsTo = array(
+        'Parroquia' => array(
+            'className'    => 'Parroquia',
+            'foreignKey'   => 'parroquia_id'
+        ),
+    );
 
     public $validate = array(
         'nombre' => array(
@@ -27,16 +33,6 @@ class Usuario extends AppModel {
                 'message' => 'Es requerido un nombre'
             )
         ),
-		'cedula' => array(
-			'required' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Es requerido colocar el número de bolsas a solicitar'
-			),
-			'valida' => array(
-				'rule' =>  array('custom', '/^([VEJG]-\d{7,8}[-]?[0-9]?)$/'),
-				'message' => 'Formato incorrecto'
-			)
-		),
 		'telefono' => array(
 			'required' => array(
 				'rule' => array('notEmpty'),

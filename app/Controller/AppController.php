@@ -12,7 +12,7 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'pedidos',
+                'controller' => 'index',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
@@ -34,11 +34,13 @@ class AppController extends Controller {
 	}
 
     public function beforeFilter() {
-	// debug('pass');
-        // $this->Auth->allow('logout');
-		// parent::beforeFilter();
 		$this->theme='960-fluid';
-		$this->layout = 'admin';
+		
+		if ($this->params['controller'] == 'usuarios' && $this->params['action'] == 'index') {
+			$this->layout = 'usuario';
+		} else {
+			$this->layout = 'admin';
+		}
 		
 		$username = $this->Auth->user('username');
 		$rol_activo = $this->Auth->user('rol');

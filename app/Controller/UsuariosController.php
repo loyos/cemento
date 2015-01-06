@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 
 class UsuariosController extends AppController {
 	public $components = array('Paginator','Session');
-	public $uses = array('Usuario','Pedido','Periodo','Parametro','User','Dia');
+	public $uses = array('Usuario','Pedido','Periodo','Parametro','User','Dia','Estado','Parroquia','Municipio','Ciudad');
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -21,15 +21,14 @@ class UsuariosController extends AppController {
  }
 	
 	public function index() {
+		$parametro = $this->Parametro->find('first');
+		$max_bolsas = $parametro['Parametro']['max_bolsas'];
 		if (!empty($this->data)) {
 			$data = $this->data;
-			$parametro = $this->Parametro->find('first');
-			$max_bolsas = $parametro['Parametro']['max_bolsas'];
-			
 			if ($max_bolsas >= $data['Usuario']['num_bolsas']) {
 				$usuario = $this->Usuario->find('first',array(
 					'conditions' => array(
-						'cedula' => $data['Usuario']['cedula']
+						'UPPER(cedula)' => strtoupper($data['Usuario']['cedula'])
 					)
 				));
 				$dias_espera = $parametro['Parametro']['dias'];
@@ -137,7 +136,16 @@ class UsuariosController extends AppController {
 				}
 			}
 		} 
-		$this->set(compact('activado','dias'));
+		$estados = $this->Estado->find('list',array(
+			'fields' => array('id','nombre'),
+			'order' => array('nombre')
+		));			
+		$options_bolsas = array();
+		for ($i=0;$i<=$max_bolsas;$i++) {
+				$options_bolsas[$i] = $i;
+		}
+		
+		$this->set(compact('activado','dias','estados','options_bolsas'));
 		
 	}
 	
@@ -199,6 +207,151 @@ class UsuariosController extends AppController {
             unset($this->request->data['User']['password']);
         }
     }
+	
+	/**
+	 * Funcion para cargar las parroquias dado el id via POST de un municipio
+	 * @return JSON 
+	 */
+	public function parroquias(){
+		if($this->request->isAjax()){
+			$this->autoRender = false;
+			$id = $this->request->data['id'];
+			if(empty($id))
+				$this->redirect($this->defaultRoute);
+			$result = array(
+				'result'=>false,
+				'datos'=>array(),
+			);
+			$parroquias = $this->Parroquia->find('all',array(
+				'conditions'=>array('municipio_id'=>$id)
+			));
+			if(!empty($parroquias)){
+				$result['result'] = true;
+				$result['datos']= $parroquias;
+			}
+			return json_encode($result);
+		}else{
+			$this->redirect($this->defaultRoute);
+		}
+	}
+	
+	/**
+	 * Funcion para cargar los municipios dado el id via POST de un estado
+	 * @return JSON 
+	 */
+	public function municipios(){
+		if($this->request->isAjax()){
+			$this->autoRender = false;
+			$id = $this->request->data['id'];
+			if(empty($id))
+				$this->redirect($this->defaultRoute);
+			$result = array(
+				'result'=>false,
+				'datos'=>array(),
+			);
+			$municipios = $this->Municipio->find('all',array(
+				'conditions'=>array('estado_id'=>$id)
+			));
+			if(!empty($municipios)){
+				$result['result'] = true;
+				$result['datos']= $municipios;
+			}
+			return json_encode($result);
+		}else{
+			$this->redirect($this->defaultRoute);
+		}
+	}
+	
+	public function datos_usuario(){
+		if($this->request->isAjax()){
+			$this->autoRender = false;
+			$id = $this->request->data['cedula'];
+			if(empty($id))
+				$this->redirect($this->defaultRoute);
+			$result = array(
+				'result'=>false,
+				'datos'=> array(),
+				'estado_id' => array(),
+				'municipios' => array(),
+				'municipio_id' => array(),
+				'parroquias' => array(),
+			);
+			$usuario = $this->Usuario->find('first',array(
+				'conditions'=>array('UPPER(cedula)' => strtoupper($id)),
+			));
+			$parroquia = $this->Parroquia->find('first',array(
+				'conditions' => array('Parroquia.id' => $usuario['Parroquia']['id'])
+			));
+			$estado_id = $parroquia['Parroquia']['estado_id'];
+			$municipios = $this->Municipio->find('all',array(
+				'conditions' => array('Municipio.estado_id' => $estado_id)
+			));
+			$parroquias = $this->Parroquia->find('all',array(
+				'conditions' => array('Parroquia.municipio_id' => $parroquia['Parroquia']['municipio_id'])
+			));
+			
+			//Buscando el numero de bolsas que puede solicitar
+			$parametro = $this->Parametro->find('first');
+			$max_bolsas = $parametro['Parametro']['max_bolsas'];
+			$bolsas_actual = 0;
+			
+			//Pedidos Pendientes
+			$pedidos = $this->Pedido->find('all',array(
+				'conditions' => array(
+					'Pedido.abierto' => 1,
+					'Pedido.usuario_id' => $usuario['Usuario']['id']
+				)
+			));
+			if (!empty($pedidos)) {
+				foreach ($pedidos as $p) {
+					$bolsas_actual = $bolsas_actual+$p['Pedido']['num_bolsas'];
+				}
+			}
+			
+			//Busco si hay un periodo abierto
+			
+			$fecha = date('Y-m-d');
+			$periodo = $this->Periodo->find('first',array(
+				'conditions' => array(
+					'Periodo.fecha_inicio <=' => $fecha,
+					'Periodo.fecha_fin >=' => $fecha,
+					'Periodo.usuario_id' => $usuario['Usuario']['id']
+				)
+			));
+			
+			if (!empty($periodo)) {
+				$bolsas_actual = $bolsas_actual + $usuario['Usuario']['bolsas_actual'];
+			} else {
+				$update_usuario = array(
+						'Usuario' => array(
+							'id' => $usuario['Usuario']['id'],
+							'bolsas_actual' => 0
+						)
+					);
+				$this->Usuario->save($update_usuario);
+			}
+			
+			$bolsas_restantes = $max_bolsas - $bolsas_actual;
+			$options_bolsas = array();
+			for ($i=0;$i<=$bolsas_restantes;$i++) {
+				$options_bolsas[] = $i;
+			}
+			
+			if(!empty($usuario)){
+				$result['result'] = true;
+				$result['datos']= $usuario;
+				$result['estado_id'] = $estado_id;
+				$result['municipios'] = $municipios;
+				$result['municipio_id'] = $parroquia['Parroquia']['municipio_id'];
+				$result['parroquias'] = $parroquias;
+				$result['options_bolsas'] = $options_bolsas;
+			}
+			return json_encode($result);
+		}else{
+			$this->redirect($this->defaultRoute);
+		}
+	}
+	
 }
 
 ?>

@@ -21,7 +21,7 @@
 		echo $this->Html->css('jquery-ui.min');
 		echo $this->Html->script('jquery-ui-1.10.4.custom');
 		echo $this->Html->script('jquery.PrintArea');
-
+		echo $this->Html->script('jquery.maskedinput.min');
 	?>
 	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
@@ -37,11 +37,9 @@
 		</div>
 		<div class="clear"></div>
 		<div class="grid_16">
-			 <?php echo $this->element('admin/main_menu'); ?>
+			 <ul class="nav main"></ul>
 		</div>
-		
 		<div class="clear" style="height: 10px; width: 100%;"></div>
-		
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
