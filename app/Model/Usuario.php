@@ -9,10 +9,6 @@ class Usuario extends AppModel {
 			'className' => 'Pedido',
 			'foreignKey' => 'usuario_id'
 		),
-		'Entrega' => array(
-			'className' => 'Entrega',
-			'foreignKey' => 'usuario_id'
-		),
 		'Periodo' => array(
 			'className' => 'Periodo',
 			'foreignKey' => 'usuario_id'
@@ -20,13 +16,19 @@ class Usuario extends AppModel {
 	);
 	
 	public $belongsTo = array(
-        'Parroquia' => array(
-            'className'    => 'Parroquia',
-            'foreignKey'   => 'parroquia_id'
+        'Municipio' => array(
+            'className'    => 'Municipio',
+            'foreignKey'   => 'municipio_id'
         ),
     );
 
     public $validate = array(
+		'cedula' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Es requerido una cédula'
+            )
+        ),
         'nombre' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
@@ -49,28 +51,28 @@ class Usuario extends AppModel {
 				'message' => 'Correo inválido'
 			)
 		),
-		'pais' => array(
-			'required' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Es requerido colocar el pais'
-			)
-		),
-		'estado' => array(
-			'required' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Es requerido colocar el estado o región'
-			)
-		),
 		'direccion' => array(
 			'required' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Es requerido colocar una dirección'
+				'message' => 'Este campo es requerido'
 			)
 		),
-		'num_bolsas' => array(
+		'municipio_id' => array(
 			'required' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Es requerido colocar el número de bolsas a solicitar'
+				'message' => 'Es requerido seleccionar un estado y municipio'
+			)
+		),
+		'fecha_nacimiento' => array(
+			'required' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Es requerida la fecha de nacimiento'
+			)
+		),
+		'parroquia' => array(
+			'required' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Es requerida la parroquia'
 			)
 		),
     );

@@ -4,7 +4,7 @@ App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
 
-	public $uses = array('User','Permiso');
+	public $uses = array('User','Parametro','Dia');
 	public $viewClass = 'Theme';
 	// public $helpers = array('Menu');
 
@@ -42,14 +42,15 @@ class AppController extends Controller {
 			$this->layout = 'admin';
 		}
 		
-		$username = $this->Auth->user('username');
-		$rol_activo = $this->Auth->user('rol');
-		$id = $this->Auth->user('id');
+		//if (!empty($this->Auth->user('username'))) {
+			$username_user = $this->Auth->user('username');
+		//}
+		$parametro = $this->Parametro->find('first');
+		$correo_rechazo = $parametro['Parametro']['correo_rechazo'];
 		
-		if(!empty($username)){
-			$this->set('username', $username);
-			$this->set('id', $id);
-			$this->set('rol_activo', $rol_activo);
-		}
+		$dias_activos = $this->Dia->find('all');
+		
+		$this->set(compact('correo_rechazo','dias_activos','username_user'));
+		
     }
 }

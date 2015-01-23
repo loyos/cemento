@@ -1,32 +1,44 @@
 <div class="page-header" style = "text-align: center;">
-	<h1>Consulta de solicitudes<br></h1>
+	<h1>Consulta del historial de solicitudes<br></h1>
 </div>
-<div>
-<div class="printer" style="float:left;margin-top:160px;margin-left:13px">';
+<div class="printer tooltip" style="float:left;margin-top:208px;margin-left:13px;margin-bottom:5px" title="Imprimir Solicitudes">
 	<?php echo $this->Html->image('printer.png',array('width' => '25px'));?>
 </div>
 <div class = "search_box" style= "margin: 1%;">
-	<?php echo $this->element('pedidos_search'); ?>
+	<?php echo $this->element('pedidos_search_historial'); ?>
 </div>
-
-<div class="imprimir">
-<table class="table table-hover user_table">
+	<div style="float:left; color:blue; width:169px; margin-left:707px">
+		<div style="float:left">Total de sacos solicitados:</div>
+		<div id="cantidad_total" style="color:blue;">
+			<?php echo $count_bolsas ?>
+		</div>
+	</div>
+	<div style="float:right; color:blue; width:169px;margin-right:144px">
+		<div style="float:left">Total de sacos asignados:</div> 
+		<div id="cantidad_total" style="color:blue">
+			<?php echo $count_bolsas_asignadas ?>
+		</div>
+	</div>
+<table class="table table-hover user_table" style="width: 98%;border: 1px solid #bbb;margin-bottom: 10px;margin: 1%;">
 		<tr>
-			<th>
-			<?php echo $this->Paginator->sort('Usuario.nombre','Nombre'); ?>
+			<th style="border-top: 1px solid #bbb;background: #eee;">
+			<?php echo 'Cédula'; ?>
 			</th>
-			<th>
-			<?php echo $this->Paginator->sort('Usuario.direccion','Dirección'); ?>
+			<th style="border-top: 1px solid #bbb;background: #eee;">
+			<?php echo 'Nombre'; ?>
 			</th>
-			<th>
-			<?php echo $this->Paginator->sort('Pedido.fecha','Fecha de solicitud'); ?>
+			<th style="border-top: 1px solid #bbb;background: #eee;max-width:152px">
+			<?php echo 'Dirección'; ?>
 			</th>
-			<th>
-			<?php echo $this->Paginator->sort('Entrega.fecha','Fecha de entrega'); ?>
+			<th style="border-top: 1px solid #bbb;background: #eee;">
+			<?php echo 'Fecha de solicitud'; ?>
 			</th>
-			<th>Cantidad restante</th>
-			<th>Cantidad solicitada</th>
-			<th style = "text-align: center;">
+			<th style="border-top: 1px solid #bbb;background: #eee;">
+			<?php echo 'Fecha de entrega'; ?>
+			</th>
+			<th style="border-top: 1px solid #bbb;background: #eee;">Cantidad solicitada</th>
+			<th style="border-top: 1px solid #bbb;background: #eee;">Cantidad asignada</th>
+			<th style = "text-align: center;border-top: 1px solid #bbb;background: #eee;">
 				<?php echo 'Acciones'; ?>
 			</th>
 		</tr>
@@ -34,49 +46,50 @@
 	foreach($pedidos as $p){ ?>
 		
 		<tr>
-			<td>
+			<td style="border-top: 1px solid #bbb;background: #eee;">
+				<?php echo $p['Usuario']['cedula']; ?>
+			</td>
+			<td style="border-top: 1px solid #bbb;background: #eee;">
 				<?php echo $p['Usuario']['nombre']; ?>
 			</td>
-			<td>
-				<?php echo $p['Usuario']['direccion']; ?>
+			<td style="max-width:102px">
+				<?php echo $p['Usuario']['parroquia'].' '.$p['Usuario']['direccion']; ?>
 			</td>
-			<td>
+			<td style="border-top: 1px solid #bbb;background: #eee;">
 				<?php 
 				$fecha = explode(' ',$p['Pedido']['fecha']);
 				$date = date_create($fecha[0]);
 				echo date_format($date, 'd-m-Y'); ?>
 			</td>
-			<td>
+			<td style="border-top: 1px solid #bbb;background: #eee;">
 				<?php 
-				if ($p['Pedido']['fecha_entrega'] == '0000-00-00 00:00:00') {
+				if ($p['Pedido']['fecha_entrega'] == '0000-00-00 00:00:00' && $p['Pedido']['abierto'] == 1) {
 					$p['Pedido']['fecha_entrega'] = 'Sin fecha definida';
+				} elseif ($p['Pedido']['fecha_entrega'] == '0000-00-00 00:00:00' && $p['Pedido']['abierto'] == 0) {
+					$p['Pedido']['fecha_entrega'] = 'Rechazada';
+					$rechaza = true;
+				} 
+				if ($p['Pedido']['fecha_entrega'] == 'Rechazada') {
+					echo '<span style="color:red">'.$p['Pedido']['fecha_entrega'].'</span>';
 				} else {
-					$fecha = explode(' ',$p['Pedido']['fecha_entrega']);
-					$date = date_create($fecha[0]);
-					$p['Pedido']['fecha_entrega'] = date_format($date, 'd-m-Y');
+					echo $p['Pedido']['fecha_entrega'];
 				}
-				echo $p['Pedido']['fecha_entrega'];
 				?>
 			</td>
-			<td>
-				<?php echo $cantidad_restante[$p['Usuario']['id']]; ?>
-			</td>
-			<td>
+			<td style="border-top: 1px solid #bbb;background: #eee;">
 				<?php echo $p['Pedido']['cantidad']; ?>
 			</td>
-			<td style = "text-align: center;">
+			<td style="border-top: 1px solid #bbb;background: #eee;">
+				<?php 
+				if (!empty($rechazada)) {
+					echo '0';
+				}else{
+					echo $p['Pedido']['num_bolsas_asignadas'];
+				}
+				?>
+			</td>
+			<td style = "text-align: center;border-top: 1px solid #bbb;background: #eee;">
 				<?php
-					// if ($p['Pedido']['abierto'] == 1) {
-						// echo $this->Html->link(
-							// $this->Html->image('activate.png', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Aceptar solicitud')) . '  ',
-							// array(
-							 // 'controller' => 'pedidos',
-							 // 'action' => 'entregar',
-							 // $p['Pedido']['id']
-							// ),array('escape'=>false)
-						// );
-					// }
-				// echo ' ';
 					if ($p['Pedido']['abierto'] == 0) {
 						echo $this->Html->link(
 							$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Solicitud')) . '  ',
@@ -96,6 +109,10 @@
 ?>
 
 </table>
+<div class="imprimir_oculto" style="display:none">
+	<div class="imprimir">	
+		<?php echo $this->element('historial')?>
+	</div>
 </div>
 <div class="listas index grid_12">
 	<p>

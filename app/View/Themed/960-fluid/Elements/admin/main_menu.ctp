@@ -1,7 +1,7 @@
 <ul class="nav main">
 	<li>
 		<?php
-			if(!empty($username)){ 
+			if(!empty($username_user)){ 
 				echo $this->Html->link('Archivo', '#');
 			}
 		?>
@@ -88,7 +88,7 @@
 			</li>
 		</ul>	
 	</li>
-	<?php if(!empty($username)){?>
+	<?php if(!empty($username_user)){?>
 		<li class = 'secondary'>
 			<?php
 				echo $this->Html->link(
@@ -101,7 +101,7 @@
 			?>
 		</li>
 		<li class = "secondary">
-			<?php echo $this->Html->link('Bienvenido (a) '. $username, '#'); ?>
+			<?php echo $this->Html->link('Bienvenido (a) '. $username_user, '#'); ?>
 			
 		</li>
 	<?php }else{ ?>

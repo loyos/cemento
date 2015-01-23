@@ -3,8 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('Sistema de Cemento'); ?> - 
-		<?php echo 'Sistema de Cemento'; ?>
+		<?php echo 'Sistema de compra programada de cemento por internet'; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -22,6 +21,7 @@
 		echo $this->Html->script('jquery-ui-1.10.4.custom');
 		echo $this->Html->script('jquery.PrintArea');
 		echo $this->Html->script('jquery.maskedinput.min');
+		//echo $this->Html->script('jquery.validate.min');
 	?>
 	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
@@ -31,8 +31,8 @@
 		<div class="grid_16">
 			<h1 id="branding">
 				<?php
-				echo '<br>';
-				echo $this->Html->link(' Sistema de Cemento', array('controller' => 'index', 'action' => 'index'), array('style' => ' color: white; position: relative; top: -20px;')); ?>
+				echo $this->Html->image('logo.png', array('height' => '100px'));
+				?>
 			</h1>
 		</div>
 		<div class="clear"></div>

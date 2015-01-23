@@ -3,8 +3,8 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('Sistema de Cemento'); ?> - 
-		<?php echo 'Sistema de Cemento'; ?>
+		<?php __('Sistema para el control y venta de cemento'); ?> - 
+		<?php echo 'Sistema para el control y venta de cemento'; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -21,18 +21,20 @@
 		echo $this->Html->css('jquery-ui.min');
 		echo $this->Html->script('jquery-ui-1.10.4.custom');
 		echo $this->Html->script('jquery.PrintArea');
+		echo $this->Html->script('jquery.maskedinput.min');
 
 	?>
 	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
 </head>
 <body>
+	<div id = "total_wrap" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 99; background-color: black;  opacity: 0.6;display:none"> </div>
 	<div class="container_16">			
 		<div class="grid_16">
 			<h1 id="branding">
 				<?php
-				echo '<br>';
-				echo $this->Html->link(' Sistema de Cemento', array('controller' => 'index', 'action' => 'index'), array('style' => ' color: white; position: relative; top: -20px;')); ?>
+				echo $this->Html->image('logo.png', array('height' => '100px'));
+				//echo $this->Html->link('Sistema de compra programada de cemento por internet', array('controller' => 'usuarios', 'action' => 'index'), array('style' => ' color: white; position: relative; top: -20px;')); ?>
 			</h1>
 		</div>
 		<div class="clear"></div>

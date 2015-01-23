@@ -12,11 +12,12 @@ class Municipio extends AppModel {
     );
 	
 	var $hasMany = array(
-		'Parroquia' => array(
-			'className' => 'Parroquia',
+		'Usuario' => array(
+			'className' => 'Usuario',
 			'foreignKey' => 'municipio_id'
 		),
 	);
+	
 }
 
 ?>

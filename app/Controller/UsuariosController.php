@@ -6,7 +6,7 @@ class UsuariosController extends AppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('logout','index','login');
+		$this->Auth->allow('logout','index','login','datos_usuario','municipios','parroquias');
 	}
 	
 	function beforeSave() {
@@ -20,134 +20,108 @@ class UsuariosController extends AppController {
  }
 	
 	public function index() {
+		//Variables configurables para usar
 		$parametro = $this->Parametro->find('first');
+		$num_cuenta = $parametro['Parametro']['numero_cuenta'];
+		$banco = $parametro['Parametro']['banco'];
 		$max_bolsas = $parametro['Parametro']['max_bolsas'];
+		$correo_respuesta = $parametro['Parametro']['correo_respuesta'];
+		$dias_espera = $parametro['Parametro']['dias']; 
+		$fecha = date('Y-m-d');
+		
+		$estados = $this->Estado->find('list',array(
+			'fields' => array('id','nombre'),
+			'order' => array('nombre')
+		));	
+		
+		$this->set(compact('num_cuenta','banco'));
+		
 		if (!empty($this->data)) {
 			$data = $this->data;
-			if ($max_bolsas >= $data['Usuario']['num_bolsas']) {
+			if ($max_bolsas >= $data['Usuario']['num_bolsas']) { //Vuelvo a verificar que el numero de bolsas no sea mayor al maximo
 				$usuario = $this->Usuario->find('first',array(
 					'conditions' => array(
 						'UPPER(cedula)' => strtoupper($data['Usuario']['cedula'])
 					)
 				));
-				$dias_espera = $parametro['Parametro']['dias'];
+			
 				$this->Usuario->set($this->data);
 				if ($this->Usuario->validates($this->data)) {
-				if (empty($usuario)) { //El usuario no esta en el sistema y nunca ha hecho un pedido.
-					$this->Usuario->save($data); //Guardo la información del usuario.
-					$usuario_id = $this->Usuario->id;
+					if (empty($usuario)) { //El usuario no esta en el sistema y nunca ha hecho un pedido.
+						$this->Usuario->save($data); //Guardo la información del usuario.
+						$usuario_id = $this->Usuario->id;
+					} else { //El usuario esta registrado en el sistema
+						$usuario_id = $usuario['Usuario']['id'];
+						$data['Usuario']['id'] = $usuario_id;
+						$this->Usuario->save($data); 
+					}
 					
 					//Creo el pedido
 					$pedido = array('Pedido' => array(
 						'usuario_id' => $usuario_id,
 						'cantidad' => $data['Usuario']['num_bolsas'],
-						'num_bolsas' => $data['Usuario']['num_bolsas'],
+						'num_bolsas_asignadas' => 0,
+						'fecha' => $fecha
 					));
-				
 					$this->Pedido->save($pedido);
-					$this->Session->setFlash('La solicitud se generó con exito');
-					$this->redirect(array('action' => 'index'));
-				} else { //El usuario ha hecho pedidos anteriormente
-					$usuario_id = $usuario['Usuario']['id'];
-					$fecha = date('Y-m-d');
 					
-					//Verifico si el número de bolsas es valido
+					//Crear un periodo
 					
-					//Verifico el numero de bolsas de pedidos abiertos
-					$pedidos = $this->Pedido->find('all',array(
-						'fields' => array('SUM(Pedido.cantidad)'),
+					//Chequeo que no exista periodo
+					$existe_periodo = $this->Periodo->find('first',array(
 						'conditions' => array(
-							'Pedido.abierto' => 1,
-							'Pedido.usuario_id' => $usuario_id
+							'Periodo.usuario_id' => $usuario_id,
+							'Periodo.fecha_inicio <=' => $fecha,
+							'Periodo.fecha_fin >=' => $fecha,
 						)
 					));
-					$periodo = $this->Periodo->find('first',array(
-						'conditions' => array(
-							'Periodo.usuario_id' => $usuario_id
-						),
-						'order' => array('Periodo.id DESC')
-					));
-					if (!empty($periodo) && $periodo['Periodo']['fecha_inicio'] <= $fecha && $periodo['Periodo']['fecha_fin'] >= $fecha) {
-						$hay_periodo_abierto = true;
+					if (!empty($periodo)) { //Se actualiza el periodo
+						$nuevo_periodo = array(
+							'Periodo' => array(
+								'id' => $periodo['Periodo']['id'],
+								'fecha_inicio' => $fecha,
+								'fecha_fin' => date('Y-m-d',strtotime( '+'.$dias_espera.' day' ,strtotime($fecha))),
+								'usuario_id' => $usuario_id
+							)
+						);
 					} else {
-						$hay_periodo_abierto = false;
+						$nuevo_periodo = array(
+							'Periodo' => array(
+								'fecha_inicio' => $fecha,
+								'fecha_fin' => date('Y-m-d',strtotime( '+'.$dias_espera.' day' ,strtotime($fecha))),
+								'usuario_id' => $usuario_id
+							)
+						);
 					}
+					$this->Periodo->save($nuevo_periodo);
 					
-					if (!empty($pedidos)) { //hay pedidos abiertos
-						if (($data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`cantidad`)']) > $max_bolsas) {
-							$this->Session->setFlash('Ya ha realizado solicitudes y el monto total excede al máximo de bolsas de cemento permitido','error');
-						} else {		
-							if ($hay_periodo_abierto) {
-								if (($periodo['Periodo']['bolsas'] + $data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`cantidad`)']) > $max_bolsas) {
-									$this->Session->setFlash('El número de bolsas solicitadas mas los pedidos pendientes supera el número de bolsas maximas cada '.$dias_espera,'error');
-								}
-							} else {
-								//Actualizo el usuario
-								$data['Usuario']['id'] = $usuario_id;
-								$this->Usuario->save($data);
-								$pedido = array('Pedido' => array(
-									'usuario_id' => $usuario_id,
-									'cantidad' => $data['Usuario']['num_bolsas'],
-									'num_bolsas' => $data['Usuario']['num_bolsas'],
-								));
+					$this->Session->setFlash('La solicitud se generó con exito');
+					//Envio el correo al usuario de que la solicitud fue enviada 
 							
-								$this->Pedido->save($pedido);
-								$this->Session->setFlash('La solicitud se generó con exito','success');
-								
-								//Envio el correo al usuario de que la solicitud fue enviada 
-							
-								$datos_usuario = $this->Usuario->findById($usuario_id);
-								$correo = $datos_usuario['Usuario']['correo'];
-								$nombre = $datos_usuario['Usuario']['nombre'];
-								
-								$Email = new CakeEmail();
-								$Email->from(array('cemento@cemento.com' => 'Cemento.com'));
-								$Email->emailFormat('html');
-								$Email->to($correo);
-								$Email->subject(__('Cemento'));
-								$Email->template('pedido_recibido');
-								$Email->viewVars(compact('nombre'));
-								$Email->send();
-								$this->redirect(array('action' => 'index'));
-							}
-						}
-					} else {
-						if ($hay_periodo_abierto) {
-							if (($periodo['Periodo']['bolsas'] + $data['Usuario']['num_bolsas'] + $pedidos[0][0]['SUM(`Pedido`.`num_bolsas`)']) > $max_bolsas) {
-								$this->Session->setFlash('El número de bolsas solicitadas supera el número de bolsas maximas cada '.$dias_espera,'error');
-							}
-						} else {
-							//Actualizo el usuario
-							$data['Usuario']['id'] = $usuario_id;
-							$this->Usuario->save($data);
-							$pedido = array('Pedido' => array(
-								'usuario_id' => $usuario_id,
-								'cantidad' => $data['Usuario']['num_bolsas'],
-							));
-						
-							$this->Pedido->save($pedido);
-							$this->Session->setFlash('La solicitud se generó con exito','success');
-							
-							//Envio el correo al usuario de que la solicitud fue enviada 
-							
-							$datos_usuario = $this->Usuario->findById($usuario_id);
-							$correo = $datos_usuario['Usuario']['correo'];
-							$nombre = $datos_usuario['Usuario']['nombre'];
-							
-							$Email = new CakeEmail();
-							$Email->from(array('cemento@cemento.com' => 'Cemento.com'));
-							$Email->emailFormat('html');
-							$Email->to($correo);
-							$Email->subject(__('Cemento'));
-							$Email->template('pedido_recibido');
-							$Email->viewVars(compact('nombre'));
-							$Email->send();
-			
-							$this->redirect(array('action' => 'index'));
-						}
-					}
-				}
+					$datos_usuario = $this->Usuario->findById($usuario_id);
+					$correo = $datos_usuario['Usuario']['correo'];
+					$nombre = $datos_usuario['Usuario']['nombre'];
+					$bolsas = $data['Usuario']['num_bolsas'];
+					
+					$Email = new CakeEmail();
+					$Email->from(array($correo_respuesta => 'FerroMonica'));
+					$Email->emailFormat('html');
+					$Email->to($correo);
+					$Email->subject(__('Cemento'));
+					$Email->template('pedido_recibido');
+					$Email->viewVars(compact('nombre','bolsas'));
+					$Email->send();
+					$this->redirect(array('action' => 'index'));
 				} else {
+					//Si hay errores debo mantener los combos de estado-municipio-parroquia
+					if (!empty($this->data['Usuario']['estado_id'])) {
+						$municipios = $this->Municipio->find('list',array(
+							'fields' => array('id','nombre'),
+							'conditions' => array('Municipio.estado_id' => $this->data['Usuario']['estado_id']),
+							'order' => array('Municipio.nombre')
+						));
+						$this->set(compact('municipios'));
+					}
 					$this->Session->setFlash('Corrige los errores','error');
 				}
 			} else {
@@ -158,28 +132,40 @@ class UsuariosController extends AppController {
 		$fecha = date('D');
 		$hora = date('H:i:s');
 		$activado = false;
-		foreach ($dias as $d) {  
-			if ($fecha == $d['Dia']['dia']) {
-				if ($hora >= $d['Dia']['hora_inicio'] && $hora <= $d['Dia']['hora_fin']) {
-					$activado = true;
+		if (!empty($dias)) {
+			foreach ($dias as $d) {  
+				if ($fecha == $d['Dia']['dia']) {
+					if ($hora >= $d['Dia']['hora_inicio'] && $hora <= $d['Dia']['hora_fin']) {
+						$activado = true;
+					}
 				}
 			}
-		} 
-		$estados = $this->Estado->find('list',array(
-			'fields' => array('id','nombre'),
-			'order' => array('nombre')
-		));			
+			if ($activado) {
+				$parametros = $this->Parametro->find('first');
+				$max_bolsas = $parametros['Parametro']['max_bolsas'];
+				$dias_periodo = $parametros['Parametro']['dias'];
+				$this->set(compact('max_bolsas','dias_periodo'));
+			}
+		} else {
+			$activado = false;
+		}
+		if (!empty($dias)) {
+			$dias_espanol = array('Mon' => 'Lunes','Tue' => 'Martes', 'Wed' => 'Miercoles', 'Thu' => 'Jueves','Fri' => 'Viernes','Sat' => 'Sabado','Sun' => 'Domingo');
+			$dia = $dias_espanol[$dias[0]['Dia']['dia']];
+			$hora_inicio = $dias[0]['Dia']['hora_inicio'];
+			$hora_fin = $dias[0]['Dia']['hora_fin'];
+		}
 		$options_bolsas = array();
-		for ($i=0;$i<=$max_bolsas;$i++) {
+		for ($i=1;$i<=$max_bolsas;$i++) {
 				$options_bolsas[$i] = $i;
 		}
 		
-		$this->set(compact('activado','dias','estados','options_bolsas'));
+		$this->set(compact('activado','dias','estados','options_bolsas','max_bolsas','dia','hora_inicio','hora_fin'));
 		
 	}
 	
 	function admin_index(){
-		//$id = $this->Auth->user('id');
+		$id = $this->Auth->user('id');
 		$users = $this->User->find('all');
 		$this->set(compact('users','id'));
 	}
@@ -194,6 +180,14 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash('Corrige los errores');
 			}	
 		}
+	}
+	
+	function delete($id) {
+		$this->User->deleteAll(array(
+			'User.id' => $id
+		));
+		$this->Session->setFlash('El usuario se eliminó con éxito','success');
+		$this->redirect(array('action' => 'admin_index'));
 	}
 	
 	 public function add() {
@@ -238,33 +232,6 @@ class UsuariosController extends AppController {
     }
 	
 	/**
-	 * Funcion para cargar las parroquias dado el id via POST de un municipio
-	 * @return JSON 
-	 */
-	public function parroquias(){
-		if($this->request->isAjax()){
-			$this->autoRender = false;
-			$id = $this->request->data['id'];
-			if(empty($id))
-				$this->redirect($this->defaultRoute);
-			$result = array(
-				'result'=>false,
-				'datos'=>array(),
-			);
-			$parroquias = $this->Parroquia->find('all',array(
-				'conditions'=>array('municipio_id'=>$id)
-			));
-			if(!empty($parroquias)){
-				$result['result'] = true;
-				$result['datos']= $parroquias;
-			}
-			return json_encode($result);
-		}else{
-			$this->redirect($this->defaultRoute);
-		}
-	}
-	
-	/**
 	 * Funcion para cargar los municipios dado el id via POST de un estado
 	 * @return JSON 
 	 */
@@ -298,45 +265,29 @@ class UsuariosController extends AppController {
 			if(empty($id))
 				$this->redirect($this->defaultRoute);
 			$result = array(
-				'result'=>false,
+				'result'=> false,
 				'datos'=> array(),
 				'estado_id' => array(),
 				'municipios' => array(),
 				'municipio_id' => array(),
-				'parroquias' => array(),
 			);
 			$usuario = $this->Usuario->find('first',array(
 				'conditions'=>array('UPPER(cedula)' => strtoupper($id)),
 			));
-			$parroquia = $this->Parroquia->find('first',array(
-				'conditions' => array('Parroquia.id' => $usuario['Parroquia']['id'])
-			));
-			$estado_id = $parroquia['Parroquia']['estado_id'];
+			
+			if(!empty($usuario)) { //Cedula registrada en el sistema
+			
+			$municipio_id = $usuario['Usuario']['municipio_id'];
+			
+			$estado_id = $usuario['Municipio']['estado_id'];
 			$municipios = $this->Municipio->find('all',array(
 				'conditions' => array('Municipio.estado_id' => $estado_id)
-			));
-			$parroquias = $this->Parroquia->find('all',array(
-				'conditions' => array('Parroquia.municipio_id' => $parroquia['Parroquia']['municipio_id'])
 			));
 			
 			//Buscando el numero de bolsas que puede solicitar
 			$parametro = $this->Parametro->find('first');
 			$max_bolsas = $parametro['Parametro']['max_bolsas'];
-			$bolsas_actual = 0;
-			
-			//Pedidos Pendientes
-			$pedidos = $this->Pedido->find('all',array(
-				'conditions' => array(
-					'Pedido.abierto' => 1,
-					'Pedido.usuario_id' => $usuario['Usuario']['id']
-				)
-			));
-			if (!empty($pedidos)) {
-				foreach ($pedidos as $p) {
-					$bolsas_actual = $bolsas_actual+$p['Pedido']['cantidad'];
-				}
-			}
-			
+		
 			//Busco si hay un periodo abierto
 			
 			$fecha = date('Y-m-d');
@@ -349,31 +300,49 @@ class UsuariosController extends AppController {
 			));
 			
 			if (!empty($periodo)) {
-				$bolsas_actual = $bolsas_actual + $usuario['Usuario']['bolsas_actual'];
+				//Verifico que su pedido no haya sido rechazado
+				$tiene_pedido = $this->Pedido->find('all',array(
+					'conditions' => array(
+						'Pedido.fecha >=' => $periodo['Periodo']['fecha_inicio'],
+						'Pedido.fecha <=' => $periodo['Periodo']['fecha_fin'],
+						'Pedido.usuario_id' => $usuario['Usuario']['id'],
+					)
+				));
+				if (!empty($tiene_pedido)) {
+					$count = 0;
+					foreach ($tiene_pedido as $p) {
+						if ($p['Pedido']['abierto'] == 0 && $p['Pedido']['aceptado'] == 0) { //El pedido fue rechazado
+							$count = $count;
+						} else { //Hay pedidos asignados
+							$count = $count+1;
+						}
+					}
+					if ($count == 0) { //El pedido fue rechazado
+							$result['puede_comprar'] = true;
+					} else {
+						$result['puede_comprar'] = false;
+						$dias	= (strtotime($fecha)-strtotime(date($periodo['Periodo']['fecha_fin'],strtotime('+1 day'))))/86400;
+						$dias 	= abs($dias); 
+						$dias = floor($dias);
+						$result['dias_faltantes'] = $dias;
+					}
+				} else {	
+					$result['puede_comprar'] = true;
+				}
 			} else {
-				$update_usuario = array(
-						'Usuario' => array(
-							'id' => $usuario['Usuario']['id'],
-							'bolsas_actual' => 0
-						)
-					);
-				$this->Usuario->save($update_usuario);
+				$result['puede_comprar'] = true;
 			}
 			
-			$bolsas_restantes = $max_bolsas - $bolsas_actual;
-			$options_bolsas = array();
-			for ($i=0;$i<=$bolsas_restantes;$i++) {
-				$options_bolsas[] = $i;
-			}
+			
 			
 			if(!empty($usuario)){
 				$result['result'] = true;
 				$result['datos']= $usuario;
 				$result['estado_id'] = $estado_id;
 				$result['municipios'] = $municipios;
-				$result['municipio_id'] = $parroquia['Parroquia']['municipio_id'];
-				$result['parroquias'] = $parroquias;
-				$result['options_bolsas'] = $options_bolsas;
+				$result['municipio_id'] = $municipio_id;
+				//$result['options_bolsas'] = $options_bolsas;
+			}
 			}
 			return json_encode($result);
 		}else{

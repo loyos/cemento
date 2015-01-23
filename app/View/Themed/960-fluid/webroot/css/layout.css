@@ -563,6 +563,12 @@ div.error-message {
 .password input{
 	width: 250px;
 }
+
+#ajustar_solicitudes .input label {
+	width:auto;
+	margin-bottom:10px;
+}
+
 .input label {
 	width: 200px;
 	text-align: right;

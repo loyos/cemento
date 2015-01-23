@@ -8,16 +8,12 @@ class Pedido extends AppModel {
 		'Search.Searchable'
 	);
 	
-	var $hasOne = array('Entrega');
-	
 	public $belongsTo = array(
         'Usuario' => array(
             'className'    => 'Usuario',
             'foreignKey'   => 'usuario_id'
         ),
     );
-	
-	
 	
 	public $filterArgs = array(
 		'fecha_inicio' => array(
@@ -31,13 +27,19 @@ class Pedido extends AppModel {
 			'method' => 'filtro_fecha'
 		),
 		'ced' => array(
-			'type' => 'like',
+			'type' => 'query',
 			'field' => 'Usuario.cedula',
+			'method' => 'buscar_cedula'
 		),
-		'dir' => array(
+		'nombre_completo' => array(
 			'type' => 'like',
-			'field' => 'Usuario.direccion',
-		)
+			'field' => 'Usuario.nombre',
+		),
+		'status' => array(
+			'type' => 'query',
+			'field' => 'abierto',
+			'method' => 'buscar_status'
+		),
     );
 	
 	 public $validate = array(
@@ -70,6 +72,7 @@ class Pedido extends AppModel {
 		$day_fin = $data['fecha_fin']['day'];
 		$year_fin = $data['fecha_fin']['year'];
 		
+
 		if (!empty($month_inicio) && !empty($day_inicio) && !empty($year_inicio)) {
 			$fecha_inicio = $year_inicio.'-'.$month_inicio.'-'.$day_inicio;
 			$date = strtotime($fecha_inicio);
@@ -92,16 +95,52 @@ class Pedido extends AppModel {
 		return $condition;
 	}
 	
-	// public function buscar_cedula($data = array()) {
-		// if (!empty($data['ced'])) {
-			// $condition = array(
-			// 'Usuario.cedula' => $data['cedula']
-			// );
-		// } else {
-			// $condition = array();
-		// }
-		// return $condition;
-	// }
+	public function buscar_status($data = array()) {
+		if (!empty($data['status']) && $data['status']!='0') {
+			if ($data['status'] == '1' ) { //Solicitudes pendientes
+				$condition = array(
+					'Pedido.abierto' => 1
+				);
+			} elseif ($data['status'] == '2' ) { //Solicitudes asignadas
+				$condition = array(
+					'Pedido.abierto' => 0,
+					'Pedido.aceptado' => 1
+				);
+			} else { //Solicitudes rechazadas
+				$condition = array(
+					'Pedido.abierto' => 0,
+					'Pedido.aceptado' => 0
+				);
+			}
+		} else {
+			$condition = array();
+		}
+		//debug($condition);die();
+		return $condition;
+	}
+	
+	function buscar_cedula($data=array()) {
+		if (!empty($data['ced'])) {
+			$ced = array();
+			if (strpos(strtoupper($data['ced']), 'V-') === false) {
+				$ced[] = 'v-'.$data['ced'];
+			} else {
+				$ced[] = $data['ced'];
+			}
+			
+			if (strpos(strtoupper($data['ced']), 'E-') === false) {
+				$ced[] = 'e-'.$data['ced'];
+			} else {
+				$ced[] = $data['ced'];
+			}
+			$condition = array(
+					'Usuario.cedula' => $ced
+			);
+		} else {
+			$condition = array();
+		}
+		return $condition;
+	}
 	
 	function verificar_cantidad() {
 		$cantidad_solicitada = $this->data['Pedido']['cantidad_solicitada'];

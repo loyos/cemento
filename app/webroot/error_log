@@ -1,0 +1,95 @@
+[07-Jan-2015 20:56:11 America/Caracas] PHP Fatal error:  Can't use method return value in write context in /home/ferromon/public_html/app/Controller/AppController.php on line 45
+[07-Jan-2015 20:56:13 America/Caracas] PHP Fatal error:  Can't use method return value in write context in /home/ferromon/public_html/app/Controller/AppController.php on line 45
+[08-Jan-2015 00:13:56 America/Caracas] PHP Parse error:  syntax error, unexpected ''conditions'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/ferromon/public_html/app/Controller/PedidosController.php on line 30
+[08-Jan-2015 01:15:18 America/Caracas] PHP Parse error:  syntax error, unexpected end of file in /home/ferromon/public_html/app/View/Pedidos/historial.ctp on line 131
+[08-Jan-2015 02:03:33 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:03:33 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:04:09 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:04:09 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:04:16 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:04:28 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:05:28 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:05:28 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:05:36 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:05:36 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:05:49 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:05:50 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:06:30 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:06:33 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:06:41 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:06:41 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 02:07:18 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 07:58:18 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 07:58:24 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:08:59 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:10:21 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:16:34 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:17:13 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:41:01 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:41:33 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:41:48 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:42:10 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:42:18 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:42:18 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:42:30 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:44:01 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:44:19 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:44:33 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:48:35 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:49:37 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:50:04 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 08:51:21 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 09:15:02 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:25:01 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:25:01 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:25:38 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:25:38 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:26:40 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:26:40 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:41:37 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:41:39 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:44:08 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:44:08 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:55:15 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:55:15 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:55:41 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:58:36 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:58:36 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:59:11 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 10:59:11 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:00:48 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:00:58 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:01:02 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:05:19 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:05:19 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:05:56 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:08:57 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:08:57 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:10:04 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:10:04 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:13:21 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:13:21 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:14:47 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:14:47 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:16:28 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:16:28 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:24:47 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:25:12 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:28:04 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:29:06 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:29:06 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 11:29:07 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home/ferromon/public_html/app/Model/Municipio.php on line 28
+[08-Jan-2015 12:27:59 America/Caracas] PHP Fatal error:  Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in /home/ferromon/public_html/lib/Cake/Error/exceptions.php on line 151
+[08-Jan-2015 12:29:48 America/Caracas] PHP Fatal error:  Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in /home/ferromon/public_html/lib/Cake/Error/exceptions.php on line 151
+[08-Jan-2015 12:52:57 America/Caracas] PHP Parse error:  syntax error, unexpected ''value'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/ferromon/public_html/app/View/Pedidos/index.ctp on line 127
+[08-Jan-2015 14:28:09 America/Caracas] PHP Parse error:  syntax error, unexpected '}' in /home/ferromon/public_html/app/Controller/UsuariosController.php on line 386
+[08-Jan-2015 14:54:45 America/Caracas] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home/ferromon/public_html/app/Controller/UsuariosController.php on line 66
+[08-Jan-2015 14:54:49 America/Caracas] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home/ferromon/public_html/app/Controller/UsuariosController.php on line 66
+[08-Jan-2015 14:55:05 America/Caracas] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home/ferromon/public_html/app/Controller/UsuariosController.php on line 66
+[08-Jan-2015 15:40:41 America/Caracas] PHP Parse error:  syntax error, unexpected '}' in /home/ferromon/public_html/app/View/Usuarios/index.ctp on line 103
+[08-Jan-2015 15:40:57 America/Caracas] PHP Parse error:  syntax error, unexpected '}' in /home/ferromon/public_html/app/View/Usuarios/index.ctp on line 105
+[13-Jan-2015 22:34:57 America/Caracas] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ')' in /home/ferromon/public_html/app/Controller/UsuariosController.php on line 173
+[16-Jan-2015 16:09:49 America/Caracas] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ferromon/public_html/app/View/Elements/index.ctp on line 26
+[16-Jan-2015 16:32:26 America/Caracas] PHP Fatal error:  Call to undefined function UPPERCASE() in /home/ferromon/public_html/app/View/Elements/index.ctp on line 25
+[19-Jan-2015 20:10:23 America/Caracas] PHP Warning:  Unterminated comment starting line 1235 in /home/ferromon/public_html/lib/Cake/View/Helper/FormHelper.php on line 1235
+[19-Jan-2015 20:10:23 America/Caracas] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ferromon/public_html/lib/Cake/View/Helper/FormHelper.php on line 1238

@@ -2,9 +2,17 @@
 	<legend> Búsqueda </legend>
 <?php
 		echo $this->Form->create('Pedido', array(
-			'url' => array_merge(array('controller'=>'pedidos','action' => 'index'), $this->params['pass'])
+			'url' => array_merge(array('controller'=>'pedidos','action' => 'historial'), $this->params['pass'])
 		));
-	
+		
+		echo $this->Form->input('status', array('label' => 'Estatus de las solicitudes ','required' => false,
+			'options' => array(
+				'0' => 'Todas',
+				'1' => 'Solicitudes pendientes',
+				'2' => 'Solicitudes asignadas',
+			    '3' => 'Solicitudes rechazadas'
+			)
+		));
 		echo $this->Form->input('ced', array('label' => 'Cédula ','required' => false));
 		echo $this->Form->input('nombre_completo', array('label' => 'Nombre ','required' => false));
 		echo $this->Form->input('fecha_inicio', array('label' => 'Rango de fecha del:  ', 'empty' => 'Todas', 'type' => 'date', 'maxYear' => '2021'));

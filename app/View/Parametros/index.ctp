@@ -66,13 +66,22 @@
 			<td style = "text-align: center;">
 				<?php
 					echo $this->Html->link(
-							$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Día')) . '  ',
-							array(
-							'controller' => 'parametros',
-							'action' => 'delete_dia',
-							$d['Dia']['id']
-							),array('escape'=>false)
-						);
+						$this->Html->image('listEdit.png', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Editar Día')) . '  ',
+						array(
+						'controller' => 'parametros',
+						'action' => 'add_dia',
+						$d['Dia']['id']
+						),array('escape'=>false)
+					);
+					echo ' ';
+					echo $this->Html->link(
+						$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Día')) . '  ',
+						array(
+						'controller' => 'parametros',
+						'action' => 'delete_dia',
+						$d['Dia']['id']
+						),array('escape'=>false)
+					);
 				?>
 			</td>
 		</tr>
@@ -89,7 +98,7 @@
 				<div class="col-sm-10 col-md-offset-1">
 					<?php
 						echo $this->Form->input('max_bolsas',array(
-							'label' => 'Cantidad máxima de bolsas',
+							'label' => 'Cantidad máxima de sacos',
 							'class' => 'form-control',
 							'value' => $parametros['Parametro']['max_bolsas']
 						));
@@ -114,6 +123,76 @@
 					?>
 				</div>
 			  </div>
+			  <div class="form-group">
+				<div class="col-sm-10 col-md-offset-1">
+					<?php
+						echo $this->Form->input('precio',array(
+							'label' => 'Precio por saco',
+							'class' => 'form-control',
+							'value' => $parametros['Parametro']['precio'],
+							'type' => 'text'
+						));
+					?>
+				</div>
+			  </div>
+			  <b><br>Dirección de correos electrónicos para ser usada<br><br></b>
+			  <div class="form-group">
+				<div class="col-sm-10 col-md-offset-1">
+					<?php
+						echo $this->Form->input('correo_respuesta',array(
+							'label' => 'Correo usado al recibir una solicitud',
+							'class' => 'form-control',
+							'value' => $parametros['Parametro']['correo_respuesta'],
+							'type' => 'text'
+						));
+					?>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-10 col-md-offset-1">
+					<?php
+						echo $this->Form->input('correo_aceptacion',array(
+							'label' => 'Correo usado al aceptar una solicitud',
+							'class' => 'form-control',
+							'value' => $parametros['Parametro']['correo_aceptacion'],
+						));
+					?>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-10 col-md-offset-1">
+					<?php
+						echo $this->Form->input('correo_rechazo',array(
+							'label' => 'Correo usado al rechazar una solicitud',
+							'class' => 'form-control',
+							'value' => $parametros['Parametro']['correo_rechazo'],
+						));
+					?>
+				</div>
+			  </div>
+			   <div class="form-group">
+				<div class="col-sm-10 col-md-offset-1">
+					<?php
+						echo $this->Form->input('banco',array(
+							'label' => 'Banco para depositar',
+							'class' => 'form-control',
+							'value' => $parametros['Parametro']['banco'],
+						));
+					?>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-10 col-md-offset-1">
+					<?php
+						echo $this->Form->input('numero_cuenta',array(
+							'label' => 'Número de cuenta',
+							'class' => 'form-control',
+							'value' => $parametros['Parametro']['numero_cuenta'],
+						));
+					?>
+				</div>
+			  </div>
+			  <br><br>
 			  <div class="form-group">
 				<div class="col-sm-offset-1 col-sm-10 text-center">
 				 <?php 

@@ -46,11 +46,15 @@ class ParametrosController extends AppController {
 		$this->set(compact('parametros','dias'));
 	}
 	
-	public function add_dia() {
+	public function add_dia($id = null) {
 		if (!empty($this->data)) {
 			$data = $this->data;
 			$this->Dia->save($data);
 			$this->redirect(array('action' => 'index'));
+		}
+		if (!empty($id)) {
+			$this->data = $this->Dia->findById($id);
+			$this->set(compact('id'));
 		}
 		$options = array(
 			'Mon' => 'Lunes',

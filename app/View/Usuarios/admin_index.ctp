@@ -46,7 +46,7 @@
 			<td style = "text-align: center;">
 				<?php
 					echo $this->Html->link(
-						$this->Html->image('listEdit.png', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Editar Fecha')) . '  ',
+						$this->Html->image('listEdit.png', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Editar Usuario')) . '  ',
 						array(
 						 'controller' => 'usuarios',
 						 'action' => 'edit',
@@ -56,7 +56,7 @@
 				echo ' ';
 					if($id != $u['User']['id']) {
 						echo $this->Html->link(
-							$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Fecha')) . '  ',
+							$this->Html->image('delete-num16x16.jpg', array('width' => '15px', 'class' => 'tooltip', 'title' => 'Eliminar Usuario')) . '  ',
 							array(
 							'controller' => 'usuarios',
 							'action' => 'delete',
